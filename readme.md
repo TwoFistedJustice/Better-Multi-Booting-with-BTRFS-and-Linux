@@ -17,7 +17,7 @@ This tutorial assumes the following:
 - You can at least muddle through drive partitioning on your own (it will NOT be explained in detail here)
 - You will be using EFI and not MBR (if you don't know what these are, then you will be using EFI by default)
 
-Subjects you will have learned about with a successful completion:
+Subjects you will have learned something about with successful completion:
 - btrfs file system
 - partition management
 - subvolumes
@@ -27,8 +27,7 @@ Subjects you will have learned about with a successful completion:
 - file permissions
 
 What this does NOT cover
-- anything to do with MS Windows
-- anything to do with Mac
+- anything to do with MS Windows or Mac
 - refind boot manager
 - making a separate grub partition (advanced)
 - LVM (Logical Volume Management)
