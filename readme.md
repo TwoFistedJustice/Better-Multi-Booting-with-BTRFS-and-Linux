@@ -54,7 +54,7 @@ Set up your drive as follows (suggested)
 
 | Drive Designation | Filesystem Type | Size | name | label |  
 |------------------ | ----------------|-----| ------|----- | 
-| sda  | GPT partition table | whole drive | - | - | 
+| sda  | GPT partition table | - | - | - | 
 | sda1 | FAT32 | 35 -550 MB | ESP System Partition | EFI
 | sda2 | swap | 1.5x RAM | swap | swap 
 | sda3 | btrfs | remainder | / | /
