@@ -37,10 +37,10 @@ What this does NOT cover
 High Level Overview
 1. Partition Drive
 2. Install primary OS (recommend ubuntu variant)
-3. Rename subvolumes and configure
+3. Rename subvolumes and configure primary OS
 4. Install Second OS (any Linux distro)
-5. Rename subvolumes and configure
-6. Boot into primary OS and configure (again)
+5. Rename subvolumes and configure secondary OS
+6. Boot into and configure primary OS (again)
 
 What you will need:
 A bootable USB (recommend Etcher on Linux,  Rufus on Windows) with Kubuntu LTS
@@ -51,30 +51,14 @@ An empty SSD or hard drive, preferably one that never had Windows installed on i
 Phase 1 - Drive Partitioning -- A very sparse overview
 
 You will be using Manual partitioning throughout. You will NOT be formatting. Thou shalt not format!
+Set up your drive as follows (suggested)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| Drive Designation | Filesystem Type | Size | name | label |  
+|------------------ | ----------------|-----| ------|----- | 
+| sda  | GPT partition table | whole drive | - | - | 
+| sda1 | FAT32 | 35 -550 MB | ESP System Partition | EFI
+| sda2 | swap | 1.5x RAM | swap | swap 
+| sda3 | btrfs | remainder | / | /
 
 
 
