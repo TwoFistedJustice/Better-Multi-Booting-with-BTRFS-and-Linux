@@ -58,7 +58,7 @@ Making a backup copy - use the copy command and a tilde:
 sudo cp filename filename~
 
 
-Phase 1 - Drive Partitioning -- A very sparse overview
+### Phase 1 - Drive Partitioning -- A very sparse overview
 
 You will be using Manual partitioning throughout. You will NOT be formatting. Thou shalt not format!
 Set up your drive as follows (suggested)
@@ -76,16 +76,21 @@ sda3 (btrfs) will be configured by the Kubuntu installer. So you can leave it fo
 | sda3 | btrfs | remainder | / | /
 
 
-Phase 2 - Install primary OS (assumes: Kubuntu LTS xx.04 )
+### Phase 2 - Install primary OS (assumes: Kubuntu LTS xx.04 )
 
 You will need your Kubuntu live USB. Choose "try Kubuntu"
 Configure your wifi network and bluetooth pointer in the test distro. Your settings will be transferred to the installer and your final installation. It's also easier than doing it in the installer interface.
 
+At entrance to the partitioning section, choose "Manual" or "Something else" or the equivelent.
+
+DO NOT
+- let the installer automatically configure your drive (NO)
+
 Install to sda3
 Make sure to choose "/" as mount point. The selection box is placed below and easy to miss.
 
-___________________________________________
-Phase 3 Configure the primary OS ( assumes Kubuntu )
+
+### Phase 3 Configure the primary OS ( assumes Kubuntu )
 
 First decide what you are going to name your subvolumes. I make it simple by using @ku and @ku_home. I will use those names here, but you can use whatever you want. 
 
@@ -184,30 +189,110 @@ Change @ => @ku and save the file.
 Close Krusader.
 
 
-___________________________________________
-
-Phase 4 Install and Configure Second OS
+### Phase 4 Install the Second OS
 I will only give some DOs and DO NOTs here as each distro is different.
 
-DO: Install to the same btrfs partition before. (YES)
+DO: Install to the same btrfs partition as before. (YES)
 
 DO NOT:
 
 - Change your drive partitions (NO)
-- 
+- Choose automatic anything (NO)
+
+
+___________________________________________
+
+### Phase 5 Rename subvolumes and configure secondary OS
+
+Firstly, decide what you are going to call your new subvolumes. I installed Kali on my system so I chose @kali. You might use @mint or @manjaro, etc. 
+
+This is very similar to what you did previously so I will only notate the parts that are different. For the most part you will do everything the same way.
+This can be done from the Kubuntu Live USB (easy) or from within the installed version of Kubuntu (intermediate) which I do not cover here.
+
+DO NOT:
+- reconfigure grub $prefix. (NO)
+- install Krusader in the 'try' version of Kubuntu. (NO)
+
+You will not need Krusader for this. And Kubuntu will "own" grub and will boot the computer. ( look up boot up vs start up )
+
+Start by copying some code out of the secondary OS grub.cfg.
+location: /boot/grub/grub.cfg
+You will need to copy the code to your Kubuntu install. I used a USB stick. There are other ways.
+
+Find the section " ### BEGIN /etc/grub.d/10_linux ### "
+
+copy the first menu entry that looks something like this:
+
+``` shell 
+menuentry 'Kali GNU/Linux' --class kali --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-simple-73f6525c-0f9c-4a23-a91b-d1b46f5079c8' {
+load_video
+insmod gzio
+if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+insmod part_gpt
+insmod btrfs
+set root='hd0,gpt3'
+if [ x$feature_platform_search_hint = xy ]; then
+search --no-floppy --fs-uuid --set=root --hint-bios=hd0,gpt3 --hint-efi=hd0,gpt3 --hint-baremetal=ahci0,gpt3 73f6525c-0f9c-4a23-a91b-d1b46f5079c8
+else
+search --no-floppy --fs-uuid --set=root 73f6525c-0f9c-4a23-a91b-d1b46f5079c8
+fi
+echo 'Loading Linux 6.1.0-kali9-amd64 ...'
+linux /@/boot/vmlinuz-6.1.0-kali9-amd64 root=UUID=73f6525c-0f9c-4a23-a91b-d1b46f5079c8 ro rootflags=subvol=@ quiet splash
+echo 'Loading initial ramdisk ...'
+initrd /@/boot/initrd.img-6.1.0-kali9-amd64
+}
+```
+
+Extract that by whatever means you like to your main distro. ( I pasted it into a text file and moved it via usb stick) and make a second copy of your extracted code in case you break it.
+
+
+
+## TO DO
+**Get the swap UUID from fstab**
 
 
 
 
-Phase 5 Rename subvolumes and configure secondary OS
-I will describe Kali Linux. Other distros should be similar.
-You can configure your second OS either with your Kubuntu installer as before or you can use your actual Kubuntu installation.
-
-I will describe the steps as from your installed OS since it is different than using the bootable USB.
-
-Phase 6: Boot into and configure primary OS (again)
+Reboot into Kubuntu
 
 
+
+
+### Phase 6: Boot into and configure primary OS (again)
+
+We need to make the following changes to two of the last four lines of the extracted code.
+Firstly, note the "echo" commands. Those print messages to the grub bootup screen. Feel free to make them say whatever you find useful or amusing. You can also safely delete them.
+The two lines we need to change are the "linux" and "initrd" command lines.
+
+Change the three "@" subvolume names down at the bottom to whatever you intend to name your new distro @ subvolume.
+
+Now we are going to change the file names being used. If we dont' do this, our shiny new dual boot system will break the first time the Linux kernel is updated and we may not remember how to fix it. So let's prevent it.
+
+In my sample text the file names are:
+
+vmlinuz-6.1.0-kali9-amd64
+initrd.img-6.1.0-kali9-amd64
+
+To get this step right you may have do it a few times because not all distros handle this part the same way.
+
+If you are in an Ubuntu variant you need to change the file names to:
+vmlinuz
+initrd.img
+
+Some distros won't accept that. But we may be able to take advantage of globbing (fancy text manipulation magic). For Kali what worked was to insert a wildcard character at then end, which looks like
+vmlinuz*
+initrd.img*
+
+You can optionally remove "quiet splash" in the `linux` command which will turn of the splash screen and show you the helpful system start up messages.
+
+
+
+Paste it into the file /etc/grub.d/40_custom in your main distro.
+
+
+## TO DO
+**Update grub**
+**Repair fstab hijacked swap UUID **
 
 
 
