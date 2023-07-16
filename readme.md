@@ -129,7 +129,7 @@ We are going to use Kate's Find & Replace feature. Weird thing: Kate has TWO sim
 
 DO NOT USE:  
  - Edit => Replace (NO)
- - CTRL-F  (NO)
+ - CTRL+ F  (NO)
 
 It lacks the features we need
 
@@ -141,15 +141,18 @@ You'll see a bunch of lines that look like:
 
 linux	/@/boot/vmlinuz-5.19.0-46-generic root=UUID=73ffa900-dca2-47f2-9e0b-f8c1942ef918 ro rootflags=subvol=@  quiet splash $vt_handoff
 
-Note that there is an "@" at the beginning and "subvol=@" one at the end. These will be handled a little differently.
+Note that there is an "@" at the beginning and "subvol=@" at the end. These will be handled a little differently.
 
 We need to change all the @ to @ku. So enter @ku in the "Replace" field and click "Replace"
 The lines should look like this:
+
 linux	/@ke/boot/vmlinuz-5.19.0-46-generic root=UUID=73ffa900-dca2-47f2-9e0b-f8c1942ef918 ro rootflags=subvol=@ku  quiet splash $vt_handoff
 
 We are not done. The world will end in dragonfire if we don't add a forward slash to all the subvol fields. So:
-In the "Find" bar enter "subvol=" 
-In the "Replace" bar enter "subvol=/" and click Replace
+
+- In the "Find" bar enter "subvol="
+
+- In the "Replace" bar enter "subvol=/" and click Replace
 
 It should look like:
 
@@ -167,7 +170,7 @@ This step is to modify the grub $prefix variable. If you don't do this, you will
 
 We will use Krusader file explorer. It is not installed by default. So open the package manager Muon and install Krusader.
 
-Open Krusader and click through it's first time start up routine. Acdept everytying then go to Tools >> Start Root Mode Krusader and repeat the start up routine.
+Open Krusader and click through it's first time start up routine. Accept everything then go to Tools >> Start Root Mode Krusader and repeat the start up routine.
 
 Now navigate to /boot/efi/EFI/ubuntu/ and select grub.cfg
 
@@ -184,7 +187,14 @@ Close Krusader.
 ___________________________________________
 
 Phase 4 Install and Configure Second OS
+I will only give some DOs and DO NOTs here as each distro is different.
 
+DO: Install to the same btrfs partition before. (YES)
+
+DO NOT:
+
+- Change your drive partitions (NO)
+- 
 
 
 
