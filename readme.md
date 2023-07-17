@@ -8,6 +8,8 @@ This is based on:
 | Difficulty Level: | Intermediate
 |----- | -----|
 
+>DISCLAIMER:
+As of 17 July 2023 this writing is still in progress. I wrote this from memory (mostly) and need to follow through it step by step again to make sure I got it all down correctly.
 
 **This tutorial assumes the following:**
 - you are comfortable working in the command line
