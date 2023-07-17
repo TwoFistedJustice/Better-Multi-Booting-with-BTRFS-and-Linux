@@ -21,7 +21,7 @@ Subjects you will have learned something about with successful completion:
 - btrfs file system
 - partition management
 - subvolumes
-- root privilges
+- root privileges
 - grub boot manager
 - drive mounting
 - file permissions
@@ -84,7 +84,7 @@ Configure your wifi network and bluetooth pointer in the test distro. Your setti
 At entrance to the partitioning section, choose "Manual" or "Something else" or the equivelent.
 
 DO NOT
-- let the installer automatically configure your drive (NO)
+- let the installer automatically configure your drive ( NO )
 
 Install to sda3
 Make sure to choose "/" as mount point. The selection box is placed below and easy to miss.
@@ -133,13 +133,13 @@ The part you will need to be at least a little bit familiar with is the section 
 We are going to use Kate's Find & Replace feature. Weird thing: Kate has TWO similar looking F&R features.
 
 DO NOT USE:  
- - Edit => Replace (NO)
- - CTRL+ F  (NO)
+ - Edit => Replace ( NO )
+ - CTRL+ F  ( NO )
 
 It lacks the features we need
 
-DO USE: 
-- Go to the BOTTOM of the window and choose "Search and Replace" (YES)
+DO : 
+- Go to the BOTTOM of the window and choose "Search and Replace" ( YES )
 
 In the "Find" bar enter @ and click "Search"
 You'll see a bunch of lines that look like:
@@ -192,30 +192,34 @@ Close Krusader.
 ### Phase 4 Install the Second OS
 I will only give some DOs and DO NOTs here as each distro is different.
 
-DO: Install to the same btrfs partition as before. (YES)
+DO: Install to the same btrfs partition as before. ( YES )
 
 DO NOT:
 
-- Change your drive partitions (NO)
-- Choose automatic anything (NO)
+- Change your drive partitions ( NO )
+- Choose automatic anything ( NO )
 
 
 ___________________________________________
 
 ### Phase 5 Rename subvolumes and configure secondary OS
 
+We are going to copy some data from your seconary OS to your main OS. You will need a way to get it over there. I used a USB stick as file-transfer media.
+
 Firstly, decide what you are going to call your new subvolumes. I installed Kali on my system so I chose @kali. You might use @mint or @manjaro, etc. 
 
-This is very similar to what you did previously so I will only notate the parts that are different. For the most part you will do everything the same way.
+These steps are very similar to what you did previously so I will only notate the parts that are different. For the most part you will do everything the same way.
 This can be done from the Kubuntu Live USB (easy) or from within the installed version of Kubuntu (intermediate) which I do not cover here.
 
 DO NOT:
-- reconfigure grub $prefix. (NO)
-- install Krusader in the 'try' version of Kubuntu. (NO)
+- reconfigure grub $prefix. ( NO )
+- install Krusader in the 'try' version of Kubuntu. ( NO )
 
 You will not need Krusader for this. And Kubuntu will "own" grub and will boot the computer. ( look up boot up vs start up )
 
-Start by copying some code out of the secondary OS grub.cfg.
+Start by saving a copy of /etc/fstab to your file-transfer media. We may need a piece of information in it at the very end of this long process.
+
+Now we are going to copy some code out of the secondary OS grub.cfg.
 location: /boot/grub/grub.cfg
 You will need to copy the code to your Kubuntu install. I used a USB stick. There are other ways.
 
@@ -245,22 +249,14 @@ initrd /@/boot/initrd.img-6.1.0-kali9-amd64
 
 Extract that by whatever means you like to your main distro. ( I pasted it into a text file and moved it via usb stick) and make a second copy of your extracted code in case you break it.
 
-
-
-## TO DO
-**Get the swap UUID from fstab**
-
-
-
+Just a reminder: make sure you have a copy of your secondary distro fstab file before you log out of it.
 
 Reboot into Kubuntu
 
-
-
-
 ### Phase 6: Boot into and configure primary OS (again)
 
-We need to make the following changes to two of the last four lines of the extracted code.
+We need to make the following changes to two of the last four lines of the extracted code. Make sure you have a backup copy before you start.
+
 Firstly, note the "echo" commands. Those print messages to the grub bootup screen. Feel free to make them say whatever you find useful or amusing. You can also safely delete them.
 The two lines we need to change are the "linux" and "initrd" command lines.
 
@@ -283,7 +279,7 @@ Some distros won't accept that. But we may be able to take advantage of globbing
 vmlinuz*
 initrd.img*
 
-You can optionally remove "quiet splash" in the `linux` command which will turn of the splash screen and show you the helpful system start up messages.
+You can optionally remove "quiet splash" in the `linux` command which will turn of the splash screen and show you the helpful system start up messages. Being able to see those messages may make your life easier and is recommended.
 
 
 
@@ -295,6 +291,10 @@ Paste it into the file /etc/grub.d/40_custom in your main distro.
 **Repair fstab hijacked swap UUID **
 
 
+
+### Phase 7 Final Cleanup
+
+check fstab UUID
 
 
 
