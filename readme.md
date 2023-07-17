@@ -47,16 +47,21 @@ An empty SSD or hard drive, preferably one that never had Windows installed on i
 
 
 Some common terminal commands you will use:
+
 When I say "update grub" I mean open a terminal and type in the following commands:
+```shell
 sudo grub-mkconfig
 sudo update-grub
-
+```
 Renaming files use the move command with sudo.
+```shell
 sudo mv oldname newname
+```
 
-Making a backup copy - use the copy command and a tilde:
+Making a backup copy - use the copy command and add a tilde to the copy name:
+```shell
 sudo cp filename filename~
-
+```
 
 ### Phase 1 - Drive Partitioning -- A very sparse overview
 
@@ -200,7 +205,7 @@ DO NOT:
 - Choose automatic anything ( NO )
 
 
-___________________________________________
+
 
 ### Phase 5 Rename subvolumes and configure secondary OS
 
@@ -257,44 +262,94 @@ Reboot into Kubuntu
 
 We need to make the following changes to two of the last four lines of the extracted code. Make sure you have a backup copy before you start.
 
-Firstly, note the "echo" commands. Those print messages to the grub bootup screen. Feel free to make them say whatever you find useful or amusing. You can also safely delete them.
+Firstly, note the "echo" commands. They print messages to the grub bootup screen. Feel free to make them say whatever you find useful or amusing. You can also safely delete them.
 The two lines we need to change are the "linux" and "initrd" command lines.
 
 Change the three "@" subvolume names down at the bottom to whatever you intend to name your new distro @ subvolume.
 
-Now we are going to change the file names being used. If we dont' do this, our shiny new dual boot system will break the first time the Linux kernel is updated and we may not remember how to fix it. So let's prevent it.
+Now we are going to change the file names being used. If we don't do this, our shiny new dual boot system will break the first time the Linux kernel is updated and we may not remember how to fix it. So let's prevent it.
 
 In my sample text the file names are:
 
-vmlinuz-6.1.0-kali9-amd64
-initrd.img-6.1.0-kali9-amd64
+- vmlinuz-6.1.0-kali9-amd64
 
-To get this step right you may have do it a few times because not all distros handle this part the same way.
+- initrd.img-6.1.0-kali9-amd64
+
+To get this step right you may have do it a few times because not all distros handle this part the same way. So there may be some trial and error.
 
 If you are in an Ubuntu variant you need to change the file names to:
-vmlinuz
-initrd.img
+- vmlinuz
+- initrd.img
 
-Some distros won't accept that. But we may be able to take advantage of globbing (fancy text manipulation magic). For Kali what worked was to insert a wildcard character at then end, which looks like
-vmlinuz*
-initrd.img*
+Some distros won't accept that. But we may be able to take advantage of [globbing](https://en.wikipedia.org/wiki/Glob_(programming)) ( fancy text manipulation magic ). For Kali what worked was to insert a wildcard character at then end, which looks like
+- vmlinuz*
+- initrd.img*
 
 You can optionally remove "quiet splash" in the `linux` command which will turn of the splash screen and show you the helpful system start up messages. Being able to see those messages may make your life easier and is recommended.
 
+Double check that everything is correct ( see below for example ) and paste it into the file '40_custom' in your main distro.
+
+location: /etc/grub.d/40_custom
 
 
-Paste it into the file /etc/grub.d/40_custom in your main distro.
+Example of modified grub code: ( only the last four lines are different )
+``` shell 
+menuentry 'Kali GNU/Linux' --class kali --class gnu-linux --class gnu --class os $menuentry_id_option 'gnulinux-simple-73f6525c-0f9c-4a23-a91b-d1b46f5079c8' {
+load_video
+insmod gzio
+if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi
+insmod part_gpt
+insmod btrfs
+set root='hd0,gpt3'
+if [ x$feature_platform_search_hint = xy ]; then
+search --no-floppy --fs-uuid --set=root --hint-bios=hd0,gpt3 --hint-efi=hd0,gpt3 --hint-baremetal=ahci0,gpt3 73f6525c-0f9c-4a23-a91b-d1b46f5079c8
+else
+search --no-floppy --fs-uuid --set=root 73f6525c-0f9c-4a23-a91b-d1b46f5079c8
+fi
+echo 'I can make it say whatever I want!!!'
+linux /@kali/boot/vmlinuz* root=UUID=73f6525c-0f9c-4a23-a91b-d1b46f5079c8 ro rootflags=subvol=/@kali
+echo 'MWAHAHA!!!!'
+initrd /@kali/boot/initrd.img*
+}
+```
 
+Update grub.
 
-## TO DO
-**Update grub**
-**Repair fstab hijacked swap UUID **
+Reboot and make sure your secondary OS shows up in the grub menu. 
 
+If it's there, select it and boot it.
+
+If just sends you back to the grub menu OR it's not there at all:
+- check your 40_custom code syntax, make corrections, and update grub. Check all the syntax, { braces }, etc.
+
+If it starts to boot then just hangs with a message of "kernel panic" then it may be how you named your kernel file in 40_custom.
+
+Try something else. I don't know what to try. But try something! If it works, please drop me a note on what you did so I can add it to this tutorial.
+
+Remember, after changing your grub files, update grub.
 
 
 ### Phase 7 Final Cleanup
 
-check fstab UUID
+The last thing to do is to see if the last distro you installed hijacked your swap drive. It's okay if it did. It's easy to fix.
+
+You may have seen a message with a long countdown while starting your main OS to the effect of "startup process /dev/disk/by-uuid/someUUID" 
+
+That's an indication of a hijacked swap drive.
+
+Now we need that copy of fstab from your last installed distro. Compare the swap drive UUID in that to the one in Kubuntu (/etc/fstab). 
+If they are not the same, and they probably won't be, you will need to modify Kubuntu's fstab. Here's how: 
+ - Open it with Kate
+ - Duplicate the swap drive line and comment that line out ( add a # mark to the front of the line )
+ - Change the UUID of the swap drive to the one from that saved copy of fstab from the other OS
+ - Save the file.
+ - In terminal run the command 
+  ```shell
+   $: source /etc/fstab
+   ```
+
+
+You are done. 
 
 
 
