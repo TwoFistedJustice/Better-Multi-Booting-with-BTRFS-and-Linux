@@ -38,11 +38,11 @@ As of 17 July 2023 this writing is still in progress. I wrote this from memory (
 **High Level Overview of Phases**
 1. [Partition Drive](#phase-1---partition-drive)
 2. [Install primary OS](#phase-2---install-primary-os) (recommend ubuntu variant)  
-3. [Rename subvolumes and configure primary OS](#-phase-3---configure-primary-os)
+3. [Rename subvolumes and configure primary OS](#phase-3---configure-primary-os)
 4. [Install Secondary OS](#phase-4---install-secondary-os) (any Linux distro)
 5. [Rename subvolumes and configure secondary OS](#phase-5---configure-secondary-os)
-6. [Boot into and configure primary OS (again)](#phase-6-configure-primary-os)
-7. [Troubleshoot fstab](#phase-7-troubleshoot-fstab)
+6. [Boot into and configure primary OS (again)](#phase-6---configure-primary-os)
+7. [Troubleshoot fstab](#phase-7---troubleshoot-fstab)
 
 **What you will need:**
 - A bootable USB (recommend Etcher on Linux,  Rufus on Windows) with Kubuntu LTS
