@@ -95,7 +95,7 @@ sda3 (btrfs) will be configured by the Kubuntu installer. So you can leave it fo
 
 
 | Drive Designation | Filesystem Type | Size | name | label |  
-|------------------ | ----------------|-----| ------|----- | 
+|------------------ | :----------------|:------:| :------:|:-----: | 
 | sda  | GPT partition table | - | - | - | 
 | sda1 | FAT32 | 35 -550 MB | ESP System Partition | EFI
 | sda2 | swap | 1.5x RAM | swap | swap 
