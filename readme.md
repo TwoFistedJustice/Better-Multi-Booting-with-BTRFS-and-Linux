@@ -37,12 +37,12 @@ As of 17 July 2023 this writing is still in progress. I wrote this from memory (
 
 **High Level Overview of Phases**
 1. [Partition Drive](#phase-1---partition-drive)
-2. [Install primary OS]((#phase-2---install-primary-os)) (recommend ubuntu variant) 
-3. Rename subvolumes and configure primary OS
-4. Install Second OS (any Linux distro)
-5. Rename subvolumes and configure secondary OS
-6. Boot into and configure primary OS (again)
-7. Troubleshoot fstab
+2. [Install primary OS](#phase-2---install-primary-os) (recommend ubuntu variant)  
+3. [Rename subvolumes and configure primary OS](#-phase-3---configure-primary-os)
+4. [Install Secondary OS](#phase-4---install-secondary-os) (any Linux distro)
+5. [Rename subvolumes and configure secondary OS](#phase-5---configure-secondary-os)
+6. [Boot into and configure primary OS (again)](#phase-6-configure-primary-os)
+7. [Troubleshoot fstab](#phase-7-troubleshoot-fstab)
 
 **What you will need:**
 - A bootable USB (recommend Etcher on Linux,  Rufus on Windows) with Kubuntu LTS
@@ -105,7 +105,7 @@ sda3 (btrfs) will be configured by the Kubuntu installer. So you can leave it fo
 | sda3 | btrfs | remainder | / | /
 
 
-### Phase 2 - Install primary OS 
+### Phase 2 - Install Primary OS 
 **-- assumes: Kubuntu LTS xx.04**
 
 You will need your Kubuntu live USB. Use it to boot up your system. Choose "try Kubuntu".
@@ -122,7 +122,8 @@ At the entrance to the partitioning section, choose "Manual" or "Something else"
 - let the installer automatically configure your drive **( NO )**
 
 
-### Phase 3 Configure the primary OS ( assumes Kubuntu )
+### Phase 3 - Configure primary OS
+**-- assumes _Kubuntu_**
 
 First decide what you are going to name your subvolumes. I make it simple by using @ku and @ku_home. I will use those names here, but you can use whatever you want. 
 
@@ -219,7 +220,7 @@ Close Krusader.
 
 ==> Update grub.
 
-### Phase 4 Install the Second OS
+### Phase 4 - Install Secondary OS
 I will only give some DOs and DO NOTs here as each distro is different.
 
 **DO:**
@@ -231,7 +232,7 @@ I will only give some DOs and DO NOTs here as each distro is different.
 - Choose automatic anything **( NO )**
 
 
-### Phase 5 Rename subvolumes and configure secondary OS
+### Phase 5 - Configure Secondary OS
 
 We are going to copy some data from your secondary OS to your main OS. You will need a way to get it over there. I used a USB stick as file-transfer media.
 
@@ -287,7 +288,7 @@ Just a **reminder**: make sure you have a copy of your secondary distro `fstab` 
 
 Reboot into Kubuntu
 
-### Phase 6: Boot into and configure primary OS (again)
+### Phase 6 - Configure Primary OS (again)
 
 We need to make the following changes to two of the last four lines of the extracted code. Make sure you have a backup copy before you start.
 
@@ -362,7 +363,7 @@ Remember, after changing your grub files to
 ==> Update grub.
 
 
-### Phase 7 Troubleshooting _fstab_
+### Phase 7 - Troubleshoot _fstab_
 
 The last thing to do is to see if the last distro you installed hijacked your swap drive. It's okay if it did. It's easy to fix.
 
@@ -385,10 +386,4 @@ If they are not the same, and they probably won't be, you will need to modify Ku
    ```
 
 
-**You are done.** 
-
-
-
-
-
-
+**You are done.**
