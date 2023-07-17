@@ -161,7 +161,7 @@ We are going to use Kate's Find & Replace feature. Weird thing: Kate has TWO sim
 **DO:**
 - Go to the BOTTOM of the window and choose "Search and Replace" **( YES )**
 
-**DO NOT USE:**  
+**DO NOT:**  
  - Edit => Replace **( NO )**
  - CTRL+ F  **( NO )**
 
@@ -221,7 +221,7 @@ I will only give some DOs and DO NOTs here as each distro is different.
 **DO:**
 - Install to the same btrfs partition as before. **( YES )**
 
-**DO NOT NOT NOT:**
+**DO NOT:**
 
 - Change your drive partitions **( NO )**
 - Choose automatic anything **( NO )**
@@ -238,7 +238,7 @@ This can be done from within the installed version of Kubuntu (intermediate) whi
 
 You will not need Krusader for this. Kubuntu will "own" grub and boot the computer. ( look up "boot up vs start up" )
 
-**Do:**
+**DO:**
 - Make a copy of fstab **( YES )**
 - Copy the first menuentry from grub.cfg **( YES )**
 
