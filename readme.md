@@ -40,6 +40,7 @@ High Level Overview of Phases
 4. Install Second OS (any Linux distro)
 5. Rename subvolumes and configure secondary OS
 6. Boot into and configure primary OS (again)
+7. Troubleshoot fstab
 
 What you will need:
 A bootable USB (recommend Etcher on Linux,  Rufus on Windows) with Kubuntu LTS
