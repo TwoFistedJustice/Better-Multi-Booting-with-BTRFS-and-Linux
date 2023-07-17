@@ -36,7 +36,7 @@ As of 17 July 2023 this writing is still in progress. I wrote this from memory (
 - Drive encryption
 
 **High Level Overview of Phases**
-1. [Partition Drive](#phase-1:-partition-drive)
+1. [Partition Drive](#partition-drive)
 2. Install primary OS (recommend ubuntu variant)
 3. Rename subvolumes and configure primary OS
 4. Install Second OS (any Linux distro)
@@ -82,7 +82,8 @@ to add syntax highlighting: ( will need to install )
 batcat /filepath/filename
 ```
 
-### Phase 1: Partition Drive 
+### Phase 1
+### Partition Drive 
 **-- A very sparse overview**
 
 You will be using Manual partitioning throughout. You will NOT be formatting. _Thou shalt not format!_
