@@ -36,8 +36,8 @@ As of 17 July 2023 this writing is still in progress. I wrote this from memory (
 - Drive encryption
 
 **High Level Overview of Phases**
-1. [Partition Drive](#partition-drive)
-2. Install primary OS (recommend ubuntu variant)
+1. [Partition Drive](#phase-1---partition-drive)
+2. [Install primary OS]((#phase-2---install-primary-os)) (recommend ubuntu variant) 
 3. Rename subvolumes and configure primary OS
 4. Install Second OS (any Linux distro)
 5. Rename subvolumes and configure secondary OS
@@ -82,8 +82,7 @@ to add syntax highlighting: ( will need to install )
 batcat /filepath/filename
 ```
 
-### Phase 1
-### Partition Drive 
+### Phase 1 - Partition Drive 
 **-- A very sparse overview**
 
 You will be using Manual partitioning throughout. You will NOT be formatting. _Thou shalt not format!_
@@ -106,7 +105,8 @@ sda3 (btrfs) will be configured by the Kubuntu installer. So you can leave it fo
 | sda3 | btrfs | remainder | / | /
 
 
-### Phase 2 - Install primary OS (assumes: Kubuntu LTS xx.04 )
+### Phase 2 - Install primary OS 
+**-- assumes: Kubuntu LTS xx.04**
 
 You will need your Kubuntu live USB. Use it to boot up your system. Choose "try Kubuntu".
 
