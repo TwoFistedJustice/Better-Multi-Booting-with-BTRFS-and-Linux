@@ -46,9 +46,9 @@ A bootable USB (recommend Etcher on Linux,  Rufus on Windows) with Kubuntu LTS
 An empty SSD or hard drive, preferably one that never had Windows installed on it (Windows leaves things behind...).
 
 
-Some common terminal commands you will use:
+## Common terminal commands we will use:
 
-When I say "update grub" I mean open a terminal and type in the following commands:
+"Update grub" means open a terminal and type in the following commands:
 ```shell
 sudo grub-mkconfig
 sudo update-grub
@@ -193,6 +193,7 @@ Change @ => @ku and save the file.
 
 Close Krusader.
 
+Update grub.
 
 ### Phase 4 Install the Second OS
 I will only give some DOs and DO NOTs here as each distro is different.
