@@ -252,10 +252,13 @@ You will not need Krusader for this. Kubuntu will "own" grub and boot the comput
 - install Krusader in the 'try' version of Kubuntu. **( NO )**
 
 Start by saving a copy of fstab to your file-transfer media because we may need a piece of information in it at the very end of this long process.
+
 **Location:** /`etc/fstab`
 
 Now we are going to copy some code out of the secondary OS grub.cfg.
+
 **Location:** `/boot/grub/grub.cfg`
+
 You will need to copy the code to your Kubuntu install. I used a USB stick. There are other ways.
 
 Find the section  `### BEGIN /etc/grub.d/10_linux ### `
