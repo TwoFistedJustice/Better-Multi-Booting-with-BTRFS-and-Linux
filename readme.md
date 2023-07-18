@@ -45,7 +45,7 @@ As of 17 July 2023 this writing is still in progress. I wrote this from memory (
 7. [Troubleshoot fstab](#phase-7---troubleshoot-fstab)
 
 **What you will need:**
-- A bootable USB (recommend [Etcher](https://etcher.balena.io/) on Linux,  [Rufus](https://rufus.ie/en/) on Windows) with Kubuntu LTS
+- A bootable USB (recommend [Etcher](https://etcher.balena.io/) on Linux,  [Rufus](https://rufus.ie/en/) on Windows) with [Kubuntu LTS](https://kubuntu.org/getkubuntu/)
 - An empty SSD or hard drive, preferably one that never had Windows installed on it ( Windows leaves _Things_ behind... )
 
 
