@@ -358,7 +358,7 @@ If it starts to boot then just hangs with a message of "kernel panic" then it ma
 
 Try something else. I don't know what to try. But try something! If it works, please drop me a note on what you did so I can add it to this tutorial.
 
-Remember, after changing your grub files to
+Remember, after changing your grub files
 
 ==> Update grub.
 
