@@ -45,7 +45,7 @@ As of 17 July 2023 this writing is still in progress. I wrote this from memory (
 7. [Troubleshoot fstab](#phase-7---troubleshoot-fstab)
 
 **What you will need:**
-- A bootable USB (recommend [Etcher](https://etcher.balena.io/) on Linux,  [Rufus](https://rufus.ie/en/) on Windows) with [Kubuntu LTS](https://kubuntu.org/getkubuntu/)
+- A bootable USB (recommend [Etcher](https://etcher.balena.io/ "official Etcher download page") on Linux,  [Rufus](https://rufus.ie/en/ "Rufus developer website") on Windows) with [Kubuntu LTS](https://kubuntu.org/getkubuntu/ "Official Kubuntu LTS download page")
 - An empty SSD or hard drive, preferably one that never had Windows installed on it ( Windows leaves _Things_ behind... )
 
 
@@ -89,7 +89,7 @@ You will be using Manual partitioning throughout. You will NOT be formatting. _T
 
 Set up your drive as follows (suggested)
 
-I suggest using Gparted on a bootable USB. You will configure
+I suggest using [Gparted](https://gparted.org/ "Gparted Website") on a bootable USB. You will configure
 - GUID Partition Table ( GPT )
 - sda1 ( EFI )
 - sda2 ( swap )
@@ -100,7 +100,7 @@ sda3 (btrfs) will be configured by the Kubuntu installer. So you can leave it fo
 | Drive Designation | Filesystem Type | Size | name | label |  
 |------------------ | :----------------|:------:| :------:|:-----: | 
 | sda  | GPT partition table | - | - | - | 
-| sda1 | FAT32 | 35 -550 MB | ESP System Partition | EFI
+| sda1 | FAT32 | 35 -550 MiB | ESP System Partition | EFI
 | sda2 | swap | 1.5x RAM | swap | swap 
 | sda3 | btrfs | remainder | / | /
 
@@ -311,7 +311,7 @@ If you are in an Ubuntu variant you need to change the file names to:
 - `vmlinuz`
 - `initrd.img`
 
-Some distros won't accept that. But we may be able to take advantage of [globbing](https://en.wikipedia.org/wiki/Glob_(programming)) ( fancy text manipulation magic ). For Kali what worked was to insert a wildcard character at then end, which looks like
+Some distros won't accept that. But we may be able to take advantage of [globbing](https://en.wikipedia.org/wiki/Glob_(programming) "Wikipedia page on globbing") ( fancy text manipulation magic ). For Kali what worked was to insert a wildcard character at then end, which looks like
 - `vmlinuz*`
 - `initrd.img*`
 
