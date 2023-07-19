@@ -137,6 +137,9 @@ Personally I find the file explorer easier and faster for this. In any event, we
 
 Note: You will be repeating the first 3 parts ( ABC ) with your secondary distro in Phase 5.
 
+**DO NOT:**
+- Do Part D as part of [Phase 5](#phase-5---configure-secondary-os) **( NO )**
+
 A - [Rename btrfs subvolumes](#part-a---rename-btrfs-subvolumes) \
 B - [Modify fstab](#part-b---modify-fstab) \
 C - [Modify grub.cfg](#part-c---modify-grubcfg--fun-times-ahead-youll-be-doing-this-again-next-step-but-with-an-identically-named-file-somewhere-else) \
@@ -177,7 +180,6 @@ We are going to use Kate's Find & Replace feature. Weird thing: Kate has TWO sim
 **DO NOT:**  
  - Edit => Replace **( NO )**
  - CTRL+ F  **( NO )**
- - Do Part D as part of [Phase 5](#phase-5---configure-secondary-os) **( NO )**
 
 They lack the features we need.
 
