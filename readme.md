@@ -249,14 +249,14 @@ You will not need Krusader for this. Kubuntu will "own" grub and boot the comput
 - reconfigure grub $prefix. **( NO )**
 - install Krusader in the 'try' version of Kubuntu. **( NO )**
 
-Repeat Phase 3 parts A through C for the new distro. Do not do Part D. Then come back to this point.
+Repeat [Phase 3](#phase-3---configure-primary-os) parts A through C for the new distro. Do not do Part D. Then come back to this point.
 
 The additional steps for the secondary distro are:
 
-E - Copy fstab
-F - Copy a block of code from grub.cfg
-G - Check if grub symlinks are already configured
-H - Configure grub symlinks
+E - [Copy fstab](#part-5e---copy-fstab)
+F - [Copy a block of code from grub.cfg](#part-5f-copy-a-block-of-code-from-grubcfg)
+G - [Check if grub symlinks are already configured]((#part-5g-setting-up-grub-symlinks))
+H - [Configure grub symlinks](#part-5h---creating-the-symlinks-manually)
 
 For the next two steps we are going to copy some data from your secondary OS to your main OS. You will need a way to get it over there. I used a USB stick as file-transfer media.
 
