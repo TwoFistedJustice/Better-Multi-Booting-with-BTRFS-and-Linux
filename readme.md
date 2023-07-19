@@ -140,7 +140,7 @@ Note: You will be repeating the first 3 parts ( ABC ) with your secondary distro
 A - [Rename btrfs subvolumes](#part-a---rename-btrfs-subvolumes) \
 B - [Modify fstab](#part-b---modify-fstab) \
 C - [Modify grub.cfg](#part-c---modify-grubcfg--fun-times-ahead-youll-be-doing-this-again-next-step-but-with-an-identically-named-file-somewhere-else) \
-D - [Modify grub.cfg](#part-d---modify-grubcfg--told-you-)
+D - [Modify grub.cfg](#part-3d---modify-grubcfg--told-you-)
 
 #### Part A - Rename btrfs subvolumes
 Open Dolphin, find your main drive and use the right click menu to open a terminal there.
