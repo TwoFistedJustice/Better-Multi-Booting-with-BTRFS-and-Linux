@@ -387,7 +387,7 @@ sudo ln -s initrd-image-you-want-as-default initrd.img
 sudo ln -s initrd-image-you-want-as-fallback initrd.img.old
 ```
 
-Verify that the links are as they should be. If everything looks correct reboot into that same distro. If it starts up you did it right and can move on to Phase 6.
+Verify that the links are as they should be. If everything looks correct reboot into that same distro. If it starts up you did it right and can move on to Phase 6. You don't need to update grub this time.
 
 
 ### Phase 6 - Configure Primary OS (again)
