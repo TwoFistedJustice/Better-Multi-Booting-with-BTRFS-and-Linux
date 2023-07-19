@@ -137,10 +137,10 @@ Personally I find the file explorer easier and faster for this. In any event, we
 
 Note: You will be repeating the first 3 parts ( ABC ) with your secondary distro in Phase 5.
 
-A - Rename btrfs subvolumes(#part-a---rename-btrfs-subvolumes) \
-B - Modify fstab(#part-b---modify-fstab) \
-C - Modify grub.cfg(#part-c---modify-grubcfg--fun-times-ahead-youll-be-doing-this-again-next-step-but-with-an-identically-named-file-somewhere-else) \
-D - Modify grub.cfg(#part-d---modify-grubcfg--told-you-)
+A - [Rename btrfs subvolumes](#part-a---rename-btrfs-subvolumes) \
+B - [Modify fstab](#part-b---modify-fstab) \
+C - [Modify grub.cfg](#part-c---modify-grubcfg--fun-times-ahead-youll-be-doing-this-again-next-step-but-with-an-identically-named-file-somewhere-else) \
+D - [Modify grub.cfg](#part-d---modify-grubcfg--told-you-)
 
 #### Part A - Rename btrfs subvolumes
 Open Dolphin, find your main drive and use the right click menu to open a terminal there.
