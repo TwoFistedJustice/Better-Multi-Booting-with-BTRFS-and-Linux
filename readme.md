@@ -135,6 +135,12 @@ You can do these steps either in terminal (Konsole) or using the file explorer (
 
 Personally I find the file explorer easier and faster for this. In any event, we will here use the Dolphin file explorer and the text editor Kate for most steps.
 
+Note: You will be repeating the first 3 parts ( ABC ) with your secondary distro in Phase 5.
+
+A - Rename btrfs subvolumes(#part-a---rename-btrfs-subvolumes) \
+B - Modify fstab(#part-b---modify-fstab) \
+C - Modify grub.cfg(#part-c---modify-grubcfg--fun-times-ahead-youll-be-doing-this-again-next-step-but-with-an-identically-named-file-somewhere-else) \
+D - Modify grub.cfg(#part-d---modify-grubcfg--told-you-)
 
 #### Part A - Rename btrfs subvolumes
 Open Dolphin, find your main drive and use the right click menu to open a terminal there.
@@ -171,6 +177,7 @@ We are going to use Kate's Find & Replace feature. Weird thing: Kate has TWO sim
 **DO NOT:**  
  - Edit => Replace **( NO )**
  - CTRL+ F  **( NO )**
+ - Do Part D as part of [Phase 5](#phase-5---configure-secondary-os) **( NO )**
 
 They lack the features we need.
 
@@ -200,7 +207,7 @@ Manually look over all the changed lines and make sure everything looks as it sh
 
 Save and exit.
 
-#### Part D - Modify grub.cfg ( told you )
+#### Part 3D - Modify grub.cfg ( told you )
 **Location:** `/boot/efi/EFI/ubuntu/grub.cfg`
 
 This step is to modify the grub `$prefix` variable in your main OS. If you don't do this, you will get stuck at the grub prompt, which will bring about a zombie apocalypse. Also, this step doesn't work the same for every distro (Kali for example). 
