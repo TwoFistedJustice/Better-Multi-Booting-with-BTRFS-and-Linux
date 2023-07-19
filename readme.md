@@ -51,7 +51,7 @@ As of 17 July 2023 this writing is still in progress. I wrote this from memory (
 
 ## Common terminal commands and syntax we will use:
 
-Note: These are not ALL the terminal commands. You should already have basic bash literacy before proceeding.
+Note: These are not ALL the terminal commands we need. You should already have basic bash literacy before proceeding.
 
 - Whenever I use the syntax `x => y` what I mean is "change x to y".
 
