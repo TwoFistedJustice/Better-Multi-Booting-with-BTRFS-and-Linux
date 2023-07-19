@@ -234,32 +234,42 @@ I will only give some DOs and DO NOTs here as each distro is different.
 
 ### Phase 5 - Configure Secondary OS
 
-We are going to copy some data from your secondary OS to your main OS. You will need a way to get it over there. I used a USB stick as file-transfer media.
+Overview of Phase 5:
 
-Firstly, decide what you are going to call your new subvolumes. I installed Kali on my system so I chose @kali. You might use @mint or @manjaro, etc. 
+Firstly, decide what you are going to call your new subvolumes. I installed Kali on my system so I chose @kali. You might use @mint or @manjaro, etc.
 
 These steps are very similar to what you did previously so I will only notate the parts that are different. For the most part you will do everything the same way.
-This can be done from within the installed version of Kubuntu (intermediate) which I do not cover here or from the Kubuntu Live USB (easy). 
+This can be done from within the installed version of Kubuntu (intermediate) which I do not cover here or from the Kubuntu Live USB (easy).
 
 You will not need Krusader for this. Kubuntu will "own" grub and boot the computer. ( look up "boot up vs start up" )
-
-**DO:**
-- Make a copy of fstab **( YES )**
-- Copy the first menuentry from grub.cfg **( YES )**
 
 **DO NOT:**
 - reconfigure grub $prefix. **( NO )**
 - install Krusader in the 'try' version of Kubuntu. **( NO )**
 
+Repeat Phase 3 parts A through C for the new distro. Do not do Part D. Then come back to this point.
+
+The additional steps for the secondary distro are:
+
+E - Copy fstab
+F - Copy a block of code from grub.cfg
+G - Check if grub symlinks are already configured
+H - Configure grub symlinks
+
+For the next two steps we are going to copy some data from your secondary OS to your main OS. You will need a way to get it over there. I used a USB stick as file-transfer media.
+
+#### Part 5E - Copy fstab
+
 Start by saving a copy of fstab to your file-transfer media because we may need a piece of information in it at the very end of this long process.
 
 **Location:** /`etc/fstab`
 
+
+#### Part 5F Copy a block of code from grub.cfg
+
 Now we are going to copy some code out of the secondary OS grub.cfg.
 
 **Location:** `/boot/grub/grub.cfg`
-
-You will need to copy the code to your Kubuntu install. I used a USB stick. There are other ways.
 
 Find the section  `### BEGIN /etc/grub.d/10_linux ### `
 
@@ -289,9 +299,88 @@ Extract that by whatever means you like to your main distro. ( I pasted it into 
 
 Just a **reminder**: make sure you have a copy of your secondary distro `fstab` file before you log out of it.
 
-Reboot into Kubuntu
+#### Part 5G Setting up grub symlinks
+
+Symlink is short for "symbolic link". That's Linux-speak for a shortcut.
+
+The first thing to do is to see if your new distro uses symbolic links when booting grub.
+Open up a terminal and go to /boot
+
+**Location:** `/boot`
+
+Run the command:
+
+`ll` (double letter 'l' - the one between 'k' and 'm')
+
+We are looking for four lines with arrow thingies like this:
+
+```shell
+ lrwxrwxrwx 1 root root        25 Jun 28 17:59 vmlinuz -> vmlinuz-5.19.0-46-generic
+ ```
+You want to see
+- `initrd.img -> ...`
+- `initrd.img.old -> ...`
+- `vmlinuz -> ...`
+- `vmlinuz.old -> ...`
+
+If those are present then you can skip the rest of this section and move on to Phase 6.
+
+If they are NOT present then you haven't got the symlinks and you need to set them up. This is easy.
+
+In your terminal we need to navigate to your /etc directory and inspect the `kernel-img.conf` file.
+
+**Location:** /etc/kernel-img.conf
+
+cat it out. It should look something like this:
+
+```shell
+# Kernel Image management overrides
+# See kernel-img.conf(5) for details
+do_symlinks = no
+do_bootloader = no
+```
+
+If do_symlinks is set to no, then open the file with kate and change that no to yes:
+`do_symlinks = yes`
+
+Now we add the symbolic links.
+
+The REALLY easy way ( which may not work ) is to update your system. If one of the updates is a new kernel version, then the link ought to be created automatically.
+
+
+So update your system and recheck the /boot folder for those symlinks. If they weren't created then no big deal. You just need to do it manually. This is easy.
+
+#### Part 5H - Creating the symlinks manually
+You need to make FOUR of them. Use your terminal to navigate to the /boot folder
+**Location:** `/boot`
+
+We make the symlinks with the `ln` command, with the `-s` switch. It takes two arguments, the first is the name of the file you want to link, and the second is the name you want to give the link.
+
+```shell
+sudo ln -s filename linkname
+```
+If it helps you retain the info better you can also type it as:
+```shell
+sudo ln --symbolic  filename linkname
+```
+
+We will make links to the newest kernel files for booting and the second newest as fallback because sometimes even Linux breaks..
+
+```shell
+sudo ln -s kernel-you-want-as-default vmlinuz
+
+sudo ln -s kernel-you-want-as-fallback vmlinuz.old
+
+sudo ln -s initrd-image-you-want-as-default initrd.img
+
+sudo ln -s initrd-image-you-want-as-fallback initrd.img.old
+```
+
+Verify that the links are as they should be. If everything looks correct reboot into that same distro. If it starts up you did it right and can move on to Phase 6.
+
 
 ### Phase 6 - Configure Primary OS (again)
+Reboot into Kubuntu
 
 We need to make the following changes to two of the last four lines of the extracted code. Make sure you have a backup copy before you start.
 
