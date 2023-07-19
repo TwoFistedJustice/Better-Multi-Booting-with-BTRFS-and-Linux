@@ -403,9 +403,6 @@ If you are in an Ubuntu variant you need to change the file names to:
 - `vmlinuz`
 - `initrd.img`
 
-Some distros won't accept that. But we may be able to take advantage of [globbing](https://en.wikipedia.org/wiki/Glob_(programming) "Wikipedia page on globbing") ( fancy text manipulation magic ). For Kali what worked was to insert a wildcard character at then end, which looks like
-- `vmlinuz*`
-- `initrd.img*`
 
 You can optionally remove "quiet splash" in the `linux` command which will turn of the splash screen and show you the helpful system start up messages. Being able to see those messages may make your life easier and is recommended.
 
@@ -448,7 +445,14 @@ If just sends you back to the grub menu OR it's not there at all:
 
 If it starts to boot then just hangs with a message of "kernel panic" then it may be how you named your kernel file in 40_custom.
 
-Try something else. I don't know what to try. But try something! If it works, please drop me a note on what you did so I can add it to this tutorial.
+Make sure your symlinks are turned on per Phase 5G and that the symlinks are in /boot.  
+
+If it STILL won't boot, you can try a hacky ill-advised method that is at best a temporary fix by taking advantage of [globbing](https://en.wikipedia.org/wiki/Glob_(programming) "Wikipedia page on globbing") ( fancy text manipulation magic ).
+by inserting a wildcard character at then end of the symlink name in grub.cfg, which looks like
+- `vmlinuz*`
+- `initrd.img*`
+
+Or you can use the actual kernel file name, which will only work until the next update.
 
 Remember, after changing your grub files:
 
