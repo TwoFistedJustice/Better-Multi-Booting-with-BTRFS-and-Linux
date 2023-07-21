@@ -115,12 +115,6 @@ How do you know which? Experience mostly. If your computer has 8gb ram, then 12g
 ### Phase 2 - Install Primary OS 
 **-- assumes: Kubuntu LTS xx.04**
 
-You will need your Kubuntu live USB. Use it to boot up your system. Choose "try Kubuntu".
-
-Configure your wifi network and bluetooth pointer in the test distro. Your settings will be transferred to the installer and your final installation. It's also easier than doing it in the installer interface.
-
-At the entrance to the partitioning section, choose "Manual" or "Something else" or the equivalent.
-
 **DO**
 - Install Kubuntu to sda3 **( YES )**
 - Choose " / " as mount point. The selection box is placed below and easy to miss.
@@ -128,6 +122,13 @@ At the entrance to the partitioning section, choose "Manual" or "Something else"
 **DO NOT**
 - let the installer automatically configure your drive **( NO )**
 
+You will need your Kubuntu live USB. Use it to boot up your system. Choose "try Kubuntu".
+
+Configure your wifi network and bluetooth pointer in the test distro. Your settings will be transferred to the installer and your final installation. It's also easier than doing it in the installer interface.
+
+At the entrance to the partitioning section, choose "Manual" or "Something else" or the equivalent.
+
+Choose the btrfs file system and use up the unallocated portion of the drive. Choose "/" as mount point (see Do above). Fill in the all the boxes that need filling and install.
 
 ### Phase 3 - Configure primary OS
 **-- assumes _Kubuntu_**
