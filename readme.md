@@ -110,7 +110,7 @@ sda3 (btrfs) will be configured by the Kubuntu installer. So you can leave it fo
 - 1.5x system RAM
 - 1.5x expected maximum RAM utilization
 
-How do you know which? Experience mostly. If your computer has 8gb ram, then 12gb is probably safe. But if you have 32gb of RAM 48gb is probably overkill, unless you are a power user.
+How do you know which? Experience mostly. If your computer has 8gb ram, then 12gb is probably safe. But if you have 32gb of RAM, then 48gb is probably overkill, unless you are a power user.
 
 ### Phase 2 - Install Primary OS 
 **-- assumes: Kubuntu LTS xx.04**
