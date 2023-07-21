@@ -103,9 +103,14 @@ sda3 (btrfs) will be configured by the Kubuntu installer. So you can leave it fo
 |------------------ | :----------------|:------:| :------:|:-----: | 
 | sda  | GPT partition table | - | - | - | 
 | sda1 | FAT32 | 100 -550 MiB | EFI System Partition | EFI
-| sda2 | swap | 1.5x RAM | swap | swap 
+| sda2 | swap | 1.5x *see note | swap | swap 
 | sda3 | btrfs | remainder | / | /
 
+**Note:** swap drive should be either:
+- 1.5x system RAM
+- 1.5x expected maximum RAM utilization
+
+How do you know which? Experience mostly. If your computer has 8gb ram, then 12gb is probably safe. But if you have 32gb of RAM 48gb is probably overkill, unless you are a power user.
 
 ### Phase 2 - Install Primary OS 
 **-- assumes: Kubuntu LTS xx.04**
