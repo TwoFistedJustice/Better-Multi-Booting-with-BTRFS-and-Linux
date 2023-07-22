@@ -1,4 +1,4 @@
-# Better Multi-Booting with BTRFS and Linux
+marquis# Better Multi-Booting with BTRFS and Linux
 
 This is based on:
 - [More BTRFS fun: Multibooting to subvolumes on the same partition](https://www.kubuntuforums.net/forum/general/miscellaneous/btrfs/54261-more-btrfs-fun-multibooting-to-subvolumes-on-the-same-partition?highlight=multibooting+btrfs "Origin post on multi-booting BTRFS from a single partition on Kubuntu Forums") by [@oshunluvr](https://www.kubuntuforums.net/member/35692-oshunluvr "Kubuntu Forums user page for oshunluvr")
@@ -135,7 +135,7 @@ Choose the btrfs file system and use up the unallocated portion of the drive. Ch
 
 First decide what you are going to name your subvolumes. I make it simple by using @ku and @ku_home. I will use those names here, but you can use whatever you want. 
 
-This is easiest using the same Kubuntu USB you used to install. Boot into the "Try" version.
+Boot into the computer using the same Kubuntu USB stick you used to install. Choose into the "Try" version.
 
 You can do these steps either in terminal (Konsole) or using the file explorer (Dolphin).
 
