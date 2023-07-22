@@ -286,21 +286,21 @@ Repeat [Phase 3](#phase-3---configure-primary-os) parts A through C for the new 
 
 The additional steps for the secondary distro are:
 
-E - [Copy fstab](#part-5e---copy-fstab) \
-F - [Copy a block of code from grub.cfg](#part-5f-copy-a-block-of-code-from-grubcfg) \
-G - [Check if grub symlinks are already configured](#part-5g-setting-up-grub-symlinks) \
-H - [Configure grub symlinks](#part-5h---creating-the-symlinks-manually)
+H - [Copy fstab](#step-5h---copy-fstab) \
+I - [Copy a block of code from grub.cfg](#step-5i-copy-a-block-of-code-from-grubcfg) \
+J - [Check if grub symlinks are already configured](#step-5j-setting-up-grub-symlinks) \
+K - [Configure grub symlinks](#step-5k---creating-the-symlinks-manually)
 
 For the next two steps we are going to copy some data from your secondary OS to your main OS. You will need a way to get it over there. I used a USB stick as file-transfer media.
 
-#### Part 5E - Copy fstab
+#### Step 5H - Copy fstab
 
 Start by saving a copy of fstab to your file-transfer media because we may need a piece of information in it at the very end of this long process.
 
 **Location:** /`etc/fstab`
 
 
-#### Part 5F Copy a block of code from grub.cfg
+#### Step 5I Copy a block of code from grub.cfg
 
 Now we are going to copy some code out of the secondary OS grub.cfg.
 
@@ -334,7 +334,7 @@ Extract that by whatever means you like to your main distro. ( I pasted it into 
 
 Just a **reminder**: make sure you have a copy of your secondary distro `fstab` file before you log out of it.
 
-#### Part 5G Setting up grub symlinks
+#### Step 5J Setting up grub symlinks
 
 Symlink is short for "symbolic link". That's Linux-speak for a shortcut.
 
@@ -385,7 +385,7 @@ The REALLY easy way ( which may not work ) is to update your system. If one of t
 
 So update your system and recheck the /boot folder for those symlinks. If they weren't created then no big deal. You just need to do it manually. This is easy.
 
-#### Part 5H - Creating the symlinks manually
+#### Step 5K - Creating the symlinks manually
 You need to make FOUR of them. Use your terminal to navigate to the /boot folder
 **Location:** `/boot`
 
