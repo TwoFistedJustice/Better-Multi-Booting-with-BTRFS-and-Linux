@@ -289,8 +289,8 @@ The steps for the secondary distro are:
 A - [Decide What to call your subvolumes](#step-a-decide-what-you-will-call-your-subvolumes) \
 B - [Modify fstab](#step-b-modify-fstab) \
 C - [Modify grub.cfg](#step-c---modify-grubcfg) \
-D - [~~Install Krusader~~]() \
-E - [~~Modify grub.cfg~~]() \
+D - [~~Install Krusader~~](#phase-5---configure-secondary-os) \
+E - [~~Modify grub.cfg~~](#phase-5---configure-secondary-os) \
 F - [Rename btrfs subvolumes](#step-f---rename-btrfs-subvolumes) \
 G - [Update grub](#step-g---update-grub) \
 H - [Copy fstab](#step-5h---copy-fstab) \
