@@ -386,7 +386,8 @@ The REALLY easy way ( which may not work ) is to update your system. If one of t
 So update your system and recheck the /boot folder for those symlinks. If they weren't created then no big deal. You just need to do it manually. This is easy.
 
 #### Step 5K - Creating the symlinks manually
-You need to make FOUR of them. Use your terminal to navigate to the /boot folder
+You need to make FOUR of them. Use your terminal to navigate to the /boot folder 
+
 **Location:** `/boot`
 
 We make the symlinks with the `ln` command, with the `-s` switch. It takes two arguments, the first is the name of the file you want to link, and the second is the name you want to give the link.
