@@ -122,7 +122,7 @@ How do you know which? Experience mostly. If your computer has 8gb ram, then 12g
 **DO NOT**
 - let the installer automatically configure your drive **( NO )**
 
-You will need your Kubuntu live USB. Use it to boot up your system. Choose "try Kubuntu".
+Use your Kubuntu live USB to boot up your system. Choose "try Kubuntu".
 
 Configure your wifi network and bluetooth pointer in the test distro. Your settings will be transferred to the installer and your final installation. It's also easier than doing it in the installer interface.
 
