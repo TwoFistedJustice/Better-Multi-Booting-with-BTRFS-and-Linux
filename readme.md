@@ -143,13 +143,13 @@ Note: You will be repeating these steps, excepting D and E with your secondary d
 - Part D as part of [Phase 5](#phase-5---configure-secondary-os) **( NO )**
 - Part E as part of [Phase 5](#phase-5---configure-secondary-os) **( NO )**
 
-A - [Decide What to call your subvolumes]() \
-B - [Modify fstab]() \
-C - [Modify grub.cfg]() \
-D - [Install Krusader]() \
-E - [Modify grub.cfg]() \
-F - [Rename btrfs subvolumes]() \
-G - [Update grub]()
+A - [Decide What to call your subvolumes](#step-a-decide-what-you-will-call-your-subvolumes) \
+B - [Modify fstab](#step-b-modify-fstab) \
+C - [Modify grub.cfg](#step-c---modify-grubcfg) \
+D - [Install Krusader](#step-d-install-krusader) \
+E - [Modify grub.cfg](#step-3e---modify-grubcfg--told-you-) \
+F - [Rename btrfs subvolumes](#step-f---rename-btrfs-subvolumes) \
+G - [Update grub](#step-g---update-grub)
 
 #### Step A Decide what you will call your subvolumes
 I make it simple by using @ku and @ku_home. I will use those names here, but you can use whatever you want.
@@ -209,7 +209,7 @@ Manually look over all the changed lines and make sure everything looks as it sh
 
 Save and exit.
 
-#### Step D Install Krusader
+#### Step 3D Install Krusader
 
 (not for Phase 5)
 
