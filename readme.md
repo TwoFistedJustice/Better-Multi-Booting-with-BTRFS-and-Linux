@@ -135,7 +135,7 @@ Choose the btrfs file system and use up the unallocated portion of the drive. Ch
 
 First decide what you are going to name your subvolumes. I make it simple by using @ku and @ku_home. I will use those names here, but you can use whatever you want. 
 
-Boot into the computer using the same Kubuntu USB stick you used to install. Choose into the "Try" version.
+Boot into the computer using the same Kubuntu USB stick you used to install. Choose the "Try" version.
 
 You can do these steps either in terminal (Konsole) or using the file explorer (Dolphin).
 
