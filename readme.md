@@ -160,7 +160,7 @@ Find @ and @home with your terminal. Then execute the following commands:
 - `sudo mv @home @ku_home` 
 
 #### Part B - Modify fstab
-**Location:** `/etc/fstab`
+**Location:** `@ku/etc/fstab`
 
 fstab is the file where Linux stores the "**F**ile **S**ystem **TAB**le". It's an important file and if you don't know it, you should make it a point to learn about it in the near future.
 
@@ -172,7 +172,7 @@ Find fstab in your file explorer. Make a backup copy by whatever means you prefe
 Save the file and exit.
 
 #### Part C - Modify grub.cfg ( fun times ahead, you'll be doing this again next step but with an identically named file somewhere else)
-**Location:** `/boot/grub/grub.cfg`
+**Location:** `@ku/boot/grub/grub.cfg`
 
 Find it with the file explorer Dolphin. Make a backup copy. Right click on the original and select "open with Kate".
 It's a long file. Take a few minutes to get familiar with the various sections. It's okay if you don't understand it. Just note where the sections for starters.
@@ -216,7 +216,7 @@ Manually look over all the changed lines and make sure everything looks as it sh
 Save and exit.
 
 #### Part 3D - Modify grub.cfg ( told you )
-**Location:** `/boot/efi/EFI/ubuntu/grub.cfg`
+**Location:** `@ku/boot/efi/EFI/ubuntu/grub.cfg`
 
 This step is to modify the grub `$prefix` variable in your main OS. If you don't do this, you will get stuck at the grub prompt, which will bring about a zombie apocalypse. Also, this step doesn't work the same for every distro (Kali for example). 
 
@@ -224,7 +224,7 @@ We will use **Krusader** file explorer. It is not installed by default. So open 
 
 Open Krusader and click through it's first time start up routine. Accept everything then go to `Tools >> Start Root Mode Krusader` and repeat the start up routine.
 
-Now navigate to `/boot/efi/EFI/ubuntu/` and select `grub.cfg`
+Now navigate to `@ku/boot/efi/EFI/ubuntu/` and select `grub.cfg`
 
 At the bottom of the window click `f4 Edit`
 
