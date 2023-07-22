@@ -133,62 +133,56 @@ Choose the btrfs file system and use up the unallocated portion of the drive. Ch
 ### Phase 3 - Configure primary OS
 **-- assumes _Kubuntu_**
 
-First decide what you are going to name your subvolumes. I make it simple by using @ku and @ku_home. I will use those names here, but you can use whatever you want. 
-
-Boot into the computer using the same Kubuntu USB stick you used to install. Choose the "Try" version.
-
 You can do these steps either in terminal (Konsole) or using the file explorer (Dolphin).
 
-Personally I find the file explorer easier and faster for this. In any event, we will here use the Dolphin file explorer and the text editor Kate for most steps.
+We will here use the Dolphin file explorer and the text editor Kate for most steps. To open Dolphin with a keyboard shortcut hit `META + E` (META aka - the Windows Key). If you prefer the terminal go ahead and do it that way.
 
-Note: You will be repeating the first 3 parts ( ABC ) with your secondary distro in Phase 5.
+Note: You will be repeating these steps, excepting D and E with your secondary distro in Phase 5.
 
-**DO NOT:**
-- Do Part D as part of [Phase 5](#phase-5---configure-secondary-os) **( NO )**
+**DO NOT DO:**
+- Part D as part of [Phase 5](#phase-5---configure-secondary-os) **( NO )**
+- Part E as part of [Phase 5](#phase-5---configure-secondary-os) **( NO )**
 
-A - [Rename btrfs subvolumes](#part-a---rename-btrfs-subvolumes) \
-B - [Modify fstab](#part-b---modify-fstab) \
-C - [Modify grub.cfg](#part-c---modify-grubcfg--fun-times-ahead-youll-be-doing-this-again-next-step-but-with-an-identically-named-file-somewhere-else) \
-D - [Modify grub.cfg](#part-3d---modify-grubcfg--told-you-)
+A - [Decide What to call your subvolumes]() \
+B - [Modify fstab]() \
+C - [Modify grub.cfg]() \
+D - [Install Krusader]() \
+E - [Modify grub.cfg]() \
+F - [Rename btrfs subvolumes]() \
+G - [Update grub]()
 
-#### Part A - Rename btrfs subvolumes
-Open Dolphin, find your main drive and use the right click menu to open a terminal there.
+#### Step A Decide what you will call your subvolumes
+I make it simple by using @ku and @ku_home. I will use those names here, but you can use whatever you want.
 
-Find @ and @home with your terminal. Then execute the following commands:
-
-- `sudo mv @ @ku` 
-- `sudo mv @home @ku_home` 
-
-#### Part B - Modify fstab
-**Location:** `@ku/etc/fstab`
-
+#### Step B Modify fstab
+**Location:** `/etc/fstab`
 fstab is the file where Linux stores the "**F**ile **S**ystem **TAB**le". It's an important file and if you don't know it, you should make it a point to learn about it in the near future.
 
-Find fstab in your file explorer. Make a backup copy by whatever means you prefer. Right click on the original and select "open with Kate".
+Find fstab in your file explorer. Make a backup copy by whatever means you prefer. Right click on the original and select "Open with Kate".
 
 - Change all instances of `@ => @ku`
 - Change all instances of `@home => @ku_home`
 
 Save the file and exit.
 
-#### Part C - Modify grub.cfg ( fun times ahead, you'll be doing this again next step but with an identically named file somewhere else)
-**Location:** `@ku/boot/grub/grub.cfg`
+#### Step C - Modify grub.cfg
+- Modify grub.cfg ( fun times ahead, you'll be doing this again later but with an identically named file somewhere else)
+  **Location:** `@ku/boot/grub/grub.cfg`
 
-Find it with the file explorer Dolphin. Make a backup copy. Right click on the original and select "open with Kate".
+Find it with the file explorer Dolphin. Make a backup copy. Right click on the original and select "Open with Kate".
 It's a long file. Take a few minutes to get familiar with the various sections. It's okay if you don't understand it. Just note where the sections for starters.
 
-The part you will need to be at least a little bit familiar with is the section "10_linux". This is where all the auto-generated grub menu options are kept.
+The part you will need to be most familiar with is the section "10_linux". This is where all the auto-generated grub menu options are kept.
 We are going to use Kate's Find & Replace feature. Weird thing: Kate has TWO similar looking F&R features.
 
 **DO:**
 - Go to the BOTTOM of the window and choose "Search and Replace" **( YES )**
 
-**DO NOT:**  
- - Edit => Replace **( NO )**
- - CTRL+ F  **( NO )**
+**DO NOT:**
+- Edit => Replace **( NO )**
+- CTRL+ F  **( NO )**
 
 They lack the features we need.
-
 
 In the "Find" bar enter @ and click "Search"
 You'll see a bunch of lines that look like:
@@ -197,10 +191,10 @@ You'll see a bunch of lines that look like:
 
 Note that there is an `@` at the beginning and `subvol=@` at the end. These will be handled a little differently.
 
-We need to change all the @ to @ku. So enter @ku in the "Replace" field and click "Replace"
+We need to change all the @ to @ku. So enter @ku in the "Replace" field and click "Replace Checked"
 The lines should look like this:
 
-`linux	/@ke/boot/vmlinuz-5.19.0-46-generic root=UUID=73ffa900-dca2-47f2-9e0b-f8c1942ef918 ro rootflags=subvol=@ku  quiet splash $vt_handoff`
+`linux	/@ku/boot/vmlinuz-5.19.0-46-generic root=UUID=73ffa900-dca2-47f2-9e0b-f8c1942ef918 ro rootflags=subvol=@ku  quiet splash $vt_handoff`
 
 We are not done. The world will end in dragonfire if we don't add a forward slash to all the subvol fields. So:
 
@@ -209,33 +203,56 @@ We are not done. The world will end in dragonfire if we don't add a forward slas
 
 It should look like:
 
-`linux	/@ke/boot/vmlinuz-5.19.0-46-generic root=UUID=73ffa900-dca2-47f2-9e0b-f8c1942ef918 ro rootflags=subvol=/@ku  quiet splash $vt_handoff`
+`linux	/@ku/boot/vmlinuz-5.19.0-46-generic root=UUID=73ffa900-dca2-47f2-9e0b-f8c1942ef918 ro rootflags=subvol=/@ku  quiet splash $vt_handoff`
 
 Manually look over all the changed lines and make sure everything looks as it should.
 
 Save and exit.
 
-#### Part 3D - Modify grub.cfg ( told you )
-**Location:** `@ku/boot/efi/EFI/ubuntu/grub.cfg`
+#### Step D Install Krusader
 
-This step is to modify the grub `$prefix` variable in your main OS. If you don't do this, you will get stuck at the grub prompt, which will bring about a zombie apocalypse. Also, this step doesn't work the same for every distro (Kali for example). 
+(not for Phase 5)
 
-We will use **Krusader** file explorer. It is not installed by default. So open the package manager **Muon** and install Krusader.
+In the next step we will use **Krusader** file explorer. It is not installed by default. So open the package manager **Muon**, click "Check for Updates", then
+install Krusader.
+
+#### Step 3E - Modify grub.cfg ( told you )
+**Location:** `/boot/efi/EFI/ubuntu/grub.cfg`
+
+(not for Phase 5)
+
+This step is to modify the grub `$prefix` variable in your main OS. If you don't do this, you will get stuck at the grub prompt, which will bring about a zombie apocalypse. Also, this step doesn't work the same for every distro (Kali for example).
 
 Open Krusader and click through it's first time start up routine. Accept everything then go to `Tools >> Start Root Mode Krusader` and repeat the start up routine.
 
-Now navigate to `@ku/boot/efi/EFI/ubuntu/` and select `grub.cfg`
+Now navigate to `/boot/efi/EFI/ubuntu/` and select `grub.cfg`
 
 At the bottom of the window click `f4 Edit`
 
 The second line should read:
 `set prefix=($root)'/@/boot/grub'`
 
-Change `@ => @ku` and save the file. 
+Change `@ => @ku` and save the file.
 
 Close Krusader.
 
-==> Update grub.
+Congratulations! Your computer is now BROKEN!!! It won't start!!! MWAHAHA!!! But we're going to fix it in the next step because I'm a pretty easy-going super-villain.
+
+#### Step F - Rename btrfs subvolumes
+Boot into the computer using the same Kubuntu USB stick you used to install. Choose the "Try" version.
+
+Open Dolphin, find your main drive and use the right click menu to open a terminal there.
+
+Find @ and @home with your terminal. Then execute the following commands:
+
+- `sudo mv @ @ku`
+- `sudo mv @home @ku_home`
+
+Now it's fixed. Reboot and remove the USB stick.
+
+#### Step G - Update Grub
+Open a terminal ==> Update grub.
+
 
 ### Phase 4 - Install Secondary OS
 I will only give some DOs and DO NOTs here as each distro is different.
