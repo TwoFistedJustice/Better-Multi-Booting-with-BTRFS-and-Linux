@@ -282,10 +282,17 @@ You will not need Krusader for this. Kubuntu will "own" grub and boot the comput
 - reconfigure grub $prefix. **( NO )**
 - install Krusader in the 'try' version of Kubuntu. **( NO )**
 
-Repeat [Phase 3](#phase-3---configure-primary-os) parts A through C for the new distro. Do not do Part D. Then come back to this point.
+Repeat [Phase 3](#phase-3---configure-primary-os) parts A through G for the new distro. Do NOT do Steps D & E. When are done with that come back to this point.
 
-The additional steps for the secondary distro are:
+The steps for the secondary distro are:
 
+A - [Decide What to call your subvolumes](#step-a-decide-what-you-will-call-your-subvolumes) \
+B - [Modify fstab](#step-b-modify-fstab) \
+C - [Modify grub.cfg](#step-c---modify-grubcfg) \
+D - [~~Install Krusader~~]() \
+E - [~~Modify grub.cfg~~]() \
+F - [Rename btrfs subvolumes](#step-f---rename-btrfs-subvolumes) \
+G - [Update grub](#step-g---update-grub) \
 H - [Copy fstab](#step-5h---copy-fstab) \
 I - [Copy a block of code from grub.cfg](#step-5i-copy-a-block-of-code-from-grubcfg) \
 J - [Check if grub symlinks are already configured](#step-5j-setting-up-grub-symlinks) \
