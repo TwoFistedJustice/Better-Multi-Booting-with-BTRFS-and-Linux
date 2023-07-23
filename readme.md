@@ -148,7 +148,7 @@ A - [Decide What to call your subvolumes](#step-a-decide-what-you-will-call-your
 B - [Modify fstab](#step-b-modify-fstab) \
 C - [Modify grub.cfg](#step-c---modify-grubcfg) \
 D - [Install Krusader](#step-d-install-krusader) \
-E - [Modify grub.cfg](#step-3e---modify-grubcfg--told-you-) \
+E - [Modify EFI grub.cfg](#step-3e---modify-grubcfg--told-you-) \
 F - [Rename btrfs subvolumes](#step-f---rename-btrfs-subvolumes) \
 G - [Update grub](#step-g---update-grub)
 
@@ -273,24 +273,33 @@ Overview of Phase 5:
 
 Firstly, decide what you are going to call your new subvolumes. I installed Kali on my system so I chose @kali. You might use @mint or @manjaro, etc.
 
-These steps are very similar to what you did previously so I will only notate the parts that are different. For the most part you will do everything the same way.
+These steps are very similar to what you did previously so I will only detail the parts that are different. For the most part you will do everything the same way.
 This can be done from within the installed version of Kubuntu (intermediate) which I do not cover here or from the Kubuntu Live USB (easy).
 
-You will not need Krusader for this. Kubuntu will "own" grub and boot the computer. ( look up "boot up vs start up" )
+After we are finished Kubuntu will "own" grub and boot the computer. ( look up "boot up vs start up" )
+
+**Important Notes:**
+1. In Phase 5 Steps C and D are reversed from their order in Phase 3
+
+2. To edit /boot/grub/grub.cfg in your secondary distro you will use Root Mode Crusader's **F4 Edit**. It has a similar Find & Replace to Kate. Use **CTRL+R** to open it.
+
+3. The path to find the subvolumes on the Kubuntu Live USB is:
+
+**Location:** `/media/kubuntu/[UUID]/`
 
 **DO NOT:**
 - reconfigure grub $prefix. **( NO )**
-- install Krusader in the 'try' version of Kubuntu. **( NO )**
+- Do Step E **( NO )**
 
-Repeat [Phase 3](#phase-3---configure-primary-os) parts A through G for the new distro. Do NOT do Steps D & E. When are done with that come back to this point.
+Repeat [Phase 3](#phase-3---configure-primary-os) parts A through G for the new distro. Do NOT do Step E. When are done with that come back to this point.
 
 The steps for the secondary distro are:
 
 A - [Decide What to call your subvolumes](#step-a-decide-what-you-will-call-your-subvolumes) \
 B - [Modify fstab](#step-b-modify-fstab) \
-C - [Modify grub.cfg](#step-c---modify-grubcfg) \
-D - [~~Install Krusader~~](#phase-5---configure-secondary-os) \
-E - [~~Modify grub.cfg~~](#phase-5---configure-secondary-os) \
+C - [Install Krusader](#step-d-install-krusader) \
+D - [Modify grub.cfg](#step-c---modify-grubcfg) \
+E - [~~Modify EFI grub.cfg~~](#phase-5---configure-secondary-os) \
 F - [Rename btrfs subvolumes](#step-f---rename-btrfs-subvolumes) \
 G - [Update grub](#step-g---update-grub) \
 H - [Copy fstab](#step-5h---copy-fstab) \
