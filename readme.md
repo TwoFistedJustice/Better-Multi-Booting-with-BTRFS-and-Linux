@@ -44,6 +44,7 @@ As of 17 July 2023 this writing is still in progress. I wrote this from memory (
 5. [Rename subvolumes and configure secondary OS](#phase-5---configure-secondary-os)
 6. [Boot into and configure primary OS (again)](#phase-6---configure-primary-os-again)
 7. [Troubleshoot fstab](#phase-7---troubleshoot-fstab)
+8. [Troubleshooting](#phase-8---troubleshooting)
 
 **What you will need:**
 - A bootable USB (recommend [Etcher](https://etcher.balena.io/ "official Etcher download page") on Linux,  [Rufus](https://rufus.ie/en/ "Rufus developer website") on Windows) with [Kubuntu LTS](https://kubuntu.org/getkubuntu/ "Official Kubuntu LTS download page")
@@ -535,3 +536,43 @@ If they are not the same, and they probably won't be, you will need to modify Ku
 
 
 **You are done.**
+
+
+### Phase 8 Troubleshooting
+
+If you find yourself stuck at a grub prompt after all this, the problem lies in a text file or a subvolume name. You can fix it by booting into Linux Live USB and going over your work.
+
+Once you have done this a few times and understand where everything goes, you can actually do nearly all of it in Krusader much more quickly than using the method I outlined above. However be aware that Krusader
+can seriously break your system if you make a mistake or just hit the wrong key. Use it with extreme caution.
+
+**Problem:**
+Grub error that says something to the effect of:
+`Cannot open access to console, the root account is locked`
+
+Possible Solution:
+Check your all of your "subvol=" fields, including the one in 40_custom to make sure it has the forward slash " / " .
+
+**Problem:**
+Grub kernel panic
+
+Possible Solution:
+Your symlinks may not be set up properly. Double check your work in 5J and 5K.
+
+
+
+
+**problem**
+ruh-roh! You scewed up somewhere and can't find your error and you jus want to start over...
+
+Possible Solution:
+You can just delete the subvolumes of the OS in question (not your main OS though).
+
+You can try using the btrfs command to delete them. But if like me you get `ERROR: Could not statfs: No such file or directory.`
+
+Then boot up your Linux Live, find the subvolumes in terminal and remove them with `rm`
+```shell
+$ sudo rm -rfv @subvolume_name
+```
+
+
+
