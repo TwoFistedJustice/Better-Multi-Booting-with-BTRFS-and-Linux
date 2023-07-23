@@ -562,7 +562,7 @@ Your symlinks may not be set up properly. Double check your work in 5J and 5K.
 
 
 **problem**
-ruh-roh! You scewed up somewhere and can't find your error and you jus want to start over...
+ruh-roh! You scewed up somewhere and can't find your error and you just want to start over...
 
 Possible Solution:
 You can just delete the subvolumes of the OS in question (not your main OS though).
