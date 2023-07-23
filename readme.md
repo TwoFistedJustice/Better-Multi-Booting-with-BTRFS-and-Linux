@@ -4,6 +4,8 @@ This is based on:
 - [More BTRFS fun: Multibooting to subvolumes on the same partition](https://www.kubuntuforums.net/forum/general/miscellaneous/btrfs/54261-more-btrfs-fun-multibooting-to-subvolumes-on-the-same-partition?highlight=multibooting+btrfs "Origin post on multi-booting BTRFS from a single partition on Kubuntu Forums") by [@oshunluvr](https://www.kubuntuforums.net/member/35692-oshunluvr "Kubuntu Forums user page for oshunluvr")
 - [Need help setting up multi-boot with btrfs](https://www.kubuntuforums.net/forum/general/kubuntu-catchall/671909-solved-need-help-setting-up-multi-boot-with-btrfs "Post solving EFI related issues when multi-booting from a single BTRFS partition, on Kubuntu Forums") by [@TwoFistedJustice](https://www.kubuntuforums.net/member/32889-twofistedjustice "Kubuntu Forums user page for TwoFistedJustice")
 
+If you are strong in the Linux, you can follow oshunluvr's post above and then do Phase 3 Step E below.
+
 
 | Difficulty Level: | Intermediate
 |----- | -----|
@@ -575,3 +577,10 @@ $ sudo rm -rfv @subvolume_name
 
 
 
+
+## The Short Short Version
+
+
+
+
+If you have a swap drive, the last distro you installed may have changed its UUID causing problems with fstab.
