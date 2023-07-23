@@ -9,8 +9,7 @@ This is based on:
 |----- | -----|
 
 >DISCLAIMER:
-As of 17 July 2023 this writing is still in progress. I wrote this from memory (mostly) and need to follow through it step by step again to make sure I got it all down correctly.
-> 21 July 2023 - Phase 3 has been rewritten. The steps in Phase 5 need to be renumbered to work with Phase 3
+> This is best done a on a drive which contains no data. If you do it on a drive with data make sure to back up anything important before beginning. Though It did work for me, I do not guarantee that this will work for you.  
 
 **This tutorial assumes the following:**
 - you are comfortable working in the command line
