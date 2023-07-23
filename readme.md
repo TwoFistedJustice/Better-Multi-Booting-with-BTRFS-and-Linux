@@ -543,7 +543,7 @@ If they are not the same, and they probably won't be, you will need to modify Ku
 If you find yourself stuck at a grub prompt after all this, the problem lies in a text file or a subvolume name. You can fix it by booting into Linux Live USB and going over your work.
 
 Once you have done this a few times and understand where everything goes, you can actually do nearly all of it in Krusader much more quickly than using the method I outlined above. However be aware that Krusader
-can seriously break your system if you make a mistake or just hit the wrong key. Use it with extreme caution.
+can seriously break your system should you make a mistake or just hit the wrong key. **Use Krusader with extreme caution.**
 
 **Problem:**
 Grub error that says something to the effect of:
