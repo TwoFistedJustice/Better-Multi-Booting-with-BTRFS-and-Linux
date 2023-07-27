@@ -1,4 +1,4 @@
-marquis# Better Multi-Booting with BTRFS and Linux
+Better Multi-Booting with BTRFS and Linux
 
 This is based on:
 - [More BTRFS fun: Multibooting to subvolumes on the same partition](https://www.kubuntuforums.net/forum/general/miscellaneous/btrfs/54261-more-btrfs-fun-multibooting-to-subvolumes-on-the-same-partition?highlight=multibooting+btrfs "Origin post on multi-booting BTRFS from a single partition on Kubuntu Forums") by [@oshunluvr](https://www.kubuntuforums.net/member/35692-oshunluvr "Kubuntu Forums user page for oshunluvr")
