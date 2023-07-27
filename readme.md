@@ -4,7 +4,7 @@ This is based on:
 - [More BTRFS fun: Multibooting to subvolumes on the same partition](https://www.kubuntuforums.net/forum/general/miscellaneous/btrfs/54261-more-btrfs-fun-multibooting-to-subvolumes-on-the-same-partition?highlight=multibooting+btrfs "Origin post on multi-booting BTRFS from a single partition on Kubuntu Forums") by [@oshunluvr](https://www.kubuntuforums.net/member/35692-oshunluvr "Kubuntu Forums user page for oshunluvr")
 - [Need help setting up multi-boot with btrfs](https://www.kubuntuforums.net/forum/general/kubuntu-catchall/671909-solved-need-help-setting-up-multi-boot-with-btrfs "Post solving EFI related issues when multi-booting from a single BTRFS partition, on Kubuntu Forums") by [@TwoFistedJustice](https://www.kubuntuforums.net/member/32889-twofistedjustice "Kubuntu Forums user page for TwoFistedJustice")
 
-If you are strong in the Linux, you can follow oshunluvr's post above and then do Phase 3 Step E below.
+This tutorial is best for those who have yet to achieve advanced command line skills. If you are strong in the Linux, you can follow oshunluvr's post above and then do Phase 3 Step E below. Please also browse the troubleshooting sections ( 7 & 8 ) at the end.
 
 
 | Difficulty Level: | Intermediate
