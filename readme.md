@@ -574,13 +574,3 @@ Then boot up your Linux Live, find the subvolumes in terminal and remove them wi
 ```shell
 $ sudo rm -rfv @subvolume_name
 ```
-
-
-
-
-## The Short Short Version
-
-
-
-
-If you have a swap drive, the last distro you installed may have changed its UUID causing problems with fstab.
