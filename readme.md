@@ -4,7 +4,7 @@ This is based on:
 - [More BTRFS fun: Multibooting to subvolumes on the same partition](https://www.kubuntuforums.net/forum/general/miscellaneous/btrfs/54261-more-btrfs-fun-multibooting-to-subvolumes-on-the-same-partition?highlight=multibooting+btrfs "Origin post on multi-booting BTRFS from a single partition on Kubuntu Forums") by [@oshunluvr](https://www.kubuntuforums.net/member/35692-oshunluvr "Kubuntu Forums user page for oshunluvr")
 - [Need help setting up multi-boot with btrfs](https://www.kubuntuforums.net/forum/general/kubuntu-catchall/671909-solved-need-help-setting-up-multi-boot-with-btrfs "Post solving EFI related issues when multi-booting from a single BTRFS partition, on Kubuntu Forums") by [@TwoFistedJustice](https://www.kubuntuforums.net/member/32889-twofistedjustice "Kubuntu Forums user page for TwoFistedJustice")
 
-This tutorial is best for those who have yet to achieve advanced command line skills. If you are strong in the Linux, you can follow oshunluvr's post above and then do Phase 3 Step E below. Please also browse the troubleshooting sections ( 7 & 8 ) at the end.
+This tutorial is best for those who have yet to achieve advanced command line skills. If you are strong in the Linux, you can follow oshunluvr's post above and then do Phase 3-E & 5-J below. Please also browse the troubleshooting sections ( 7 & 8 ) at the end.
 
 
 | Difficulty Level: | Intermediate
@@ -159,6 +159,7 @@ I make it simple by using @ku and @ku_home. I will use those names here, but you
 
 #### Step B Modify fstab
 **Location:** `/etc/fstab`
+
 fstab is the file where Linux stores the "**F**ile **S**ystem **TAB**le". It's an important file and if you don't know it, you should make it a point to learn about it in the near future.
 
 Find fstab in your file explorer. Make a backup copy by whatever means you prefer. Right click on the original and select "Open with Kate".
@@ -170,6 +171,7 @@ Save the file and exit.
 
 #### Step C - Modify grub.cfg
 - Modify grub.cfg ( fun times ahead, you'll be doing this again later but with an identically named file somewhere else)
+
   **Location:** `@ku/boot/grub/grub.cfg`
 
 Find it with the file explorer Dolphin. Make a backup copy. Right click on the original and select "Open with Kate".
@@ -418,7 +420,7 @@ If it helps you retain the info better you can also type it as:
 sudo ln --symbolic  filename linkname
 ```
 
-We will make links to the newest kernel files for booting and the second newest as fallback because sometimes even Linux breaks..
+We will make links to the newest kernel files for booting and the second newest as fallback because sometimes even Linux breaks.
 
 ```shell
 sudo ln -s kernel-you-want-as-default vmlinuz
