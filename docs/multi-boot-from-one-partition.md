@@ -285,7 +285,7 @@ After we are finished Kubuntu will "own" grub and boot the computer. ( look up "
 **Important Notes:**
 1. In Phase 5 Steps C and D are reversed from their order in Phase 3
 
-2. To edit /boot/grub/grub.cfg in your secondary distro you will use Root Mode Crusader's **F4 Edit**. It has a similar Find & Replace to Kate. Use **CTRL+R** to open it.
+2. To edit /boot/grub/grub.cfg in your secondary distro you will use Root Mode Krusader's **F4 Edit**. It has a similar Find & Replace to Kate. Use **CTRL+R** to open it.
 
 3. The path to find the subvolumes on the Kubuntu Live USB is:
 
