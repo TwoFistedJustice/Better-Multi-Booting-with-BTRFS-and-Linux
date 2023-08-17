@@ -273,6 +273,12 @@ I will only give some DOs and DO NOTs here as each distro is different.
 
 ### Phase 5 - Configure Secondary OS
 
+>Note:
+> Much of this can be done by mounting btrfs root from Kubuntu
+> See Alternative Method at the end of the document for how to do this.
+> This method is faster, but also creates more opportunity to break things
+> in your system.
+
 Overview of Phase 5:
 
 Firstly, decide what you are going to call your new subvolumes. I installed Kali on my system so I chose @kali. You might use @mint or @manjaro, etc.
@@ -576,3 +582,37 @@ Then boot up your Linux Live, find the subvolumes in terminal and remove them wi
 ```shell
 $ sudo rm -rfv @subvolume_name
 ```
+
+### Alternative Method to Using Live-USB to Configure Secondary Distros
+
+You won't be able to rename the subvolumes for the distro you are currently booted into. ( Well you CAN, but you will regret it. )
+
+This is faster than using a Live-USB.  Everything done in Live-USB will be done in your main distro.
+
+The difference here is that you will be mounting your BTRFS root subvolume and using Krusader from your actual installed Kubuntu to
+edit the files and rename the subvolumes. I also have some .sh scripts to make some of this easier. ( Use at your own risk!!! ). I
+will not explain "basic" shell commands such as directory switching or renaming.
+
+
+To mount BTRFS root:
+Get your device name:
+
+`findmnt -vno SOURCE /home/`
+
+Make a directory `/mnt/btrfsroot/`
+
+Mount the btrfs root:
+
+`mount -o subvolid=5 [device] [mount-point]`
+
+Looks like:
+`sudo mount -o subvolid=5 /dev/sda3 /mnt/btrfsroot/`
+
+Navigate into that directory and now you can access all the files directly.
+
+When you are done, un-mount
+Note: the un-mount command only as one letter 'n' and it's toward the end.
+`sudo umount /mnt/btrfsroot/`
+
+Remove the mount point.
+`rmdir /mnt/btrfsroot`
