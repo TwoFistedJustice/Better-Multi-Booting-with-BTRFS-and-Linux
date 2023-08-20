@@ -1,48 +1,22 @@
-# Sharing Files and Application between Multiple Distros on a Single BTRFS Partition
+# Sharing Home Subdirectories
+###(between Multiple Distros on a Single BTRFS Partition)
+
 
 Assumptions:
 - There is only one user on the system. Additional users will require additional configuration, which is not covered here.
 
-Add following subvolumes to main system partition ( sda3 for me )
-
-@data
-@dotfiles
-@programs
-@tardis
-
-
-
+We will be working with the @data subvolume
 
 **Subvolume Mount Table:**
 
 | subvolume | mount point | owner |
 |-----|------|-------|
 | @data | /mnt/data | root |
-| @dotfiles |  /mnt/dotfiles | $USER |
-| @programs | /mnt/programs | root |
-| @tardis |  /mnt/tardis | $USER |
 
+Before beginning, make sure your fstab has mounted the appropriate subvolume.
 
-# Purpose of each subvolume
-
-@data:
-
-for Documents, Downloads, and all such folders normally found in /home/$USER excepting Desktop.
-
-@dotfiles:
-
-dot and rc configuration files that you want to have in common for all distros. .bash_aliases might fall into this category.
-
-@programs:
-
-Add-on applications you want to use in all distros. 
-Many .deb java runtime applications can be run from here, as can flatpaks. Doesn't work for snaps.
-
-@tardis:
-
-where I keep my personal memories and such going back several decades. It's my time travel directory. Feel free to steal my idea, or not. 
-
-
+**Benefit:** \
+Your documents, downloads, music, etc will be available from all distros.
 
 ## Sharing /home/$USER/Documents etc
 
@@ -53,6 +27,8 @@ The goal is to have all the folders in /home/user except Desktop shared between 
  I chose not to do so I could have different shortcuts on the different desktops according to how I use that distro.
 
 The process is simple.
+
+First make sure in fstab that you have mounted @data to /mnt/data 
 
 Create folders with the same names in /mnt/data/
 
@@ -67,20 +43,21 @@ xdg-user-dirs-update;
 source ${HOME}/.config/user-dirs.dirs;
 ```
 
-Rename the original folders by appending ".d" to the end. This is in case you mess up, you don't accidentally delete stuff.
+Rename the original folders by appending ".d" to the end. This is in case you mess up, so you don't accidentally delete stuff that you want to keep.
 
 Create symlinks in your home folder to the new folders
 **Location:** ~/$USER 
 
 ```shell
-sudo ln --symbolic  path/to/file linkname
+sudo ln --symbolic  path/to/folder linkname
 sudo ln -s  /mnt/data/Downloads/ Downloads
 ```
 
 Confirm everything works and looks as it should and that the original renamed folders are empty, then delete them.
 
 
-
+### The Script
+the file `home-reconfigure.sh` quickly reconfigures XDG-user-dirs.dirs and replaces the folders in ~/ with links.
 
 
 

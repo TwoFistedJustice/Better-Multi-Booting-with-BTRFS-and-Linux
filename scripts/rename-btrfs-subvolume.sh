@@ -1,6 +1,9 @@
 #!/bin/bash
 #rename-btrfs-subvolome.sh
-# usage: ./rename-btrfs-subvolome.sh @ @kubuntu
+# usage: ./rename-btrfs-subvolome.sh @ @manjaro
+# This script does NOT work on the currently booted distro.
+# It runs from your current distro to change the subvolume names for other distos
+# If you somehow succeed in changing your current distro's subvolume name bad things can happen.
 # It mounts the BTRFS root subvolume
 # Then it looks for the subvolume name you pass as the first argument
 # If it finds it, it renames it to whatever you passed as the second argument.
