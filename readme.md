@@ -14,7 +14,7 @@ No warranty is promised or provided.
 
 
 ## Sections
-- Multi-booting linux from one BTRFS partition
+- [Multi-booting linux from one BTRFS partition](/docs/multi-boot-from-one-partition.md#multi-booting-linux-from-a-single-btrfs-partition)
 - Sharing between distros
 - Shell scripts to help in setting up the above
 
