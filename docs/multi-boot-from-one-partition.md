@@ -587,7 +587,7 @@ $ sudo rm -rfv @subvolume_name
 
 You won't be able to rename the subvolumes for the distro you are currently booted into. ( Well you CAN, but you will regret it. )
 
-This is faster than using a Live-USB.  Everything done in Live-USB will be done in your main distro.
+This is faster than using a Live-USB.  Everything done the other way in Live-USB can be done this way via your main distro.
 
 The difference here is that you will be mounting your BTRFS root subvolume and using Krusader from your actual installed Kubuntu to
 edit the files and rename the subvolumes. I also have some .sh scripts to make some of this easier. ( Use at your own risk!!! ). I
