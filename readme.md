@@ -1,7 +1,7 @@
 # Better Multi-Booting with BTRFS and Linux
 
 This is a new (as of late 2023) paradigm for configuring a multi-boot Linux-only system. This was 
-developed and refined within the threads of [Kubuntu Forums](https://www.kubuntuforums.net/) discussions.
+developed and refined within the threads of [Kubuntu Forums](https://www.kubuntuforums.net/forum/general/miscellaneous/btrfs) discussions.
 
 The benefits are improved hard disc space allocation and cross-distro file and application access.
 It will allow you to share files and applications across multiple
