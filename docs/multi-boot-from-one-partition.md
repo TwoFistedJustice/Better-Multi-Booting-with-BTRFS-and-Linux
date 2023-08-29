@@ -583,6 +583,18 @@ Then boot up your Linux Live, find the subvolumes in terminal and remove them wi
 $ sudo rm -rfv @subvolume_name
 ```
 
+### Notes on using Krusader
+
+Krusader is a really powerful tool which can really break your system if you hit a wrong key. So be extra careful when using it.
+
+Almost everything in this tutorial that involves editing, copying, or renaming can be done faster using Krusader in root mode.
+
+Krusader makes file copying really easy. One panel represents 'from' and the other 'to'. To back a file up to its own directory
+open that directory in BOTH panels. Then just use the copy-button at the bottom. The rest is pretty intuitive.
+
+Krusader-Edit's Find and Replace isn't quite as luxurious as Kate's. But it will get the job done just as quickly, maybe even just a little bit faster.
+
+
 ### Alternative Method to Using Live-USB to Configure Secondary Distros
 
 You won't be able to rename the subvolumes for the distro you are currently booted into. ( Well you CAN, but you will regret it. )
