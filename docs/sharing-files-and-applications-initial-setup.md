@@ -34,7 +34,8 @@ sudo mkdir -p /mnt/dotfiles
 sudo mkdir -p /mnt/programs
 sudo mkdir -p /mnt/tardis
 sudo chown [user]:[group] /mnt/data 
-sudo chown [user]:[group] /mnt/dotfiles 
+sudo chown [user]:[group] /mnt/dotfiles
+sudo chown [user]:[group] /mnt/programs 
 sudo chown [user]:[group] /mnt/tardis 
 ```
 
