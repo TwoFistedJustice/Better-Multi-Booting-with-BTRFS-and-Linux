@@ -1,4 +1,5 @@
 #!/bin/bash
+# NOTE: You can also use Krusader to rename your subvolumes.
 #rename-btrfs-subvolome.sh
 # usage: ./rename-btrfs-subvolome.sh @ @manjaro
 # This script does NOT work on the currently booted distro.
