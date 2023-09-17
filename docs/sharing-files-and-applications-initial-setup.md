@@ -23,6 +23,16 @@ Add following subvolumes to main system partition ( sda3 for me )
 @tardis
 
 
+### Mount root BTRFS 
+You will need to mount the root BTRFS subvolume to add the new subvolumes. Once mounted cd
+into that directory.
+
+`sudo mount -o subvolid=5 $device $mountPoint`
+
+On my system that looks like
+
+`sudo mount -o subvolid=5 /dev/sda3 /mnt/bfsroot`
+
 
 
 ### Mounting the subvolumes
