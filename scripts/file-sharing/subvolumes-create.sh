@@ -12,7 +12,7 @@ declare -ar subvolumes=("@data" "@dotfiles" "@programs" "@tardis")
 declare -r device=$(findmnt -vno SOURCE /home/)
 declare -r mountPoint="/mnt/btrfsroot"
 
-# make mount point for btrf root
+# make mount point for btrfs root
 sudo mkdir -p $mountPoint
 
 
