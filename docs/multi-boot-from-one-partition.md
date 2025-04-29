@@ -13,6 +13,15 @@ This tutorial is best for those who have yet to achieve advanced command line sk
 >DISCLAIMER:
 > This is best done a on a drive which contains no data. If you do it on a drive with data make sure to back up anything important before beginning. Though It did work for me, I do not guarantee that this will work for you.
 
+**Overview From Orbit:**
+
+You can install as many versions of Linux you want as long as they support btrfs. Most installers will usually try to install them to `@` and `@home`
+subvolumes. Some won't. You may need to rename the subvolumes to something else. In fact, you should plan to rename them to just about anything else
+instead of `@` and `@home`. You'll want to leave those two free for installers to use. Also, if you don't, then one day you might unintentionally
+overwrite your system. oops.
+
+There are a lot of steps. And you should be comfortable working in the command line before beginning. If you screw up, it's probably fixable. Probably.
+
 **This tutorial assumes the following:**
 - you are comfortable working in the command line
 - you know how to make a bootable USB
@@ -50,6 +59,9 @@ This tutorial is best for those who have yet to achieve advanced command line sk
 **What you will need:**
 - A bootable USB (recommend [Etcher](https://etcher.balena.io/ "official Etcher download page") on Linux,  [Rufus](https://rufus.ie/en/ "Rufus developer website") on Windows) with [Kubuntu LTS](https://kubuntu.org/getkubuntu/ "Official Kubuntu LTS download page")
 - An empty SSD or hard drive, preferably one that never had Windows installed on it ( Windows leaves _Things_ behind... )
+
+You should make a writable partition on the USB drive. Ignore all the tutorials. Just use a partition manager to delete the "unformatted" partition 
+at the end, and create a new ext4 partition in its place. You may have to modify its permissions using `chown` and `chmod`.
 
 
 ## Common terminal commands and syntax we will use:
