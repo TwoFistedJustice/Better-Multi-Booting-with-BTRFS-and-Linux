@@ -47,7 +47,7 @@ Start with:
 In my case, attempting to install updates failed because package-kit had an unmet dependency.
 
 I fixed that with (no additional parameters needed): 
-`sudo apt fix-install`
+`sudo apt --fix-broken install`
 
 Then ran `sudo apt-get upgrade` which upgrades all the various little packages.  
 
@@ -60,7 +60,7 @@ Installing 6.8.5-58 generic
 Don't use the automatic tool. It may overwrite your configurations. (I actually don't know if it will, I didn't trust it.)
 Use the command line:
 
-`sudo do-release-upgrade | tee ~/Desktop/upgrade.log`
+`sudo do-release-upgrade | tee ~/Documents/upgrade.log`
 
 The first half starts the attended upgrade process (meaning you must attend to it and occasionally make a decision)
 The second half outputs the upgrade logs to your desktop, so you can read them later (useful for troubleshooting).
